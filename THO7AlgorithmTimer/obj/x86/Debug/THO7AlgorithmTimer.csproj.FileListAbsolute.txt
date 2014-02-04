@@ -1,0 +1,9 @@
+C:\school\jaar 2\TCTI-V2THO7-12\week 1\THO7AlgorithmTimer\bin\Debug\THO8AlgorithmTimer.exe
+C:\school\jaar 2\TCTI-V2THO7-12\week 1\THO7AlgorithmTimer\bin\Debug\THO8AlgorithmTimer.pdb
+C:\school\jaar 2\TCTI-V2THO7-12\week 1\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimer.csprojResolveAssemblyReference.cache
+C:\school\jaar 2\TCTI-V2THO7-12\week 1\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimerApplication.ImagePreviewForm.resources
+C:\school\jaar 2\TCTI-V2THO7-12\week 1\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimerApplication.MainForm.resources
+C:\school\jaar 2\TCTI-V2THO7-12\week 1\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimerApplication.Properties.Resources.resources
+C:\school\jaar 2\TCTI-V2THO7-12\week 1\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimer.csproj.GenerateResource.Cache
+C:\school\jaar 2\TCTI-V2THO7-12\week 1\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.exe
+C:\school\jaar 2\TCTI-V2THO7-12\week 1\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.pdb
