@@ -16,3 +16,12 @@ C:\Users\Madmilla\Documents\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO
 C:\Users\Madmilla\Documents\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimerApplication.MainForm.resources
 C:\Users\Madmilla\Documents\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimerApplication.Properties.Resources.resources
 C:\Users\Madmilla\Documents\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimer.csproj.GenerateResource.Cache
+D:\Documenten\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.exe
+D:\Documenten\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.pdb
+D:\Documenten\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimer.csprojResolveAssemblyReference.cache
+D:\Documenten\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimerApplication.ImagePreviewForm.resources
+D:\Documenten\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimerApplication.MainForm.resources
+D:\Documenten\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimerApplication.Properties.Resources.resources
+D:\Documenten\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimer.csproj.GenerateResource.Cache
+D:\Documenten\GitHub\2C-W1-TH\THO7AlgorithmTimer\bin\Debug\THO8AlgorithmTimer.exe
+D:\Documenten\GitHub\2C-W1-TH\THO7AlgorithmTimer\bin\Debug\THO8AlgorithmTimer.pdb
