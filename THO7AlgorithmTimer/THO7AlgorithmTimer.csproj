@@ -69,7 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BlackAlgorithm.cs" />
+    <Compile Include="BlackRectangleFillerAlgorithm.cs" />
     <Compile Include="ImagePreviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
