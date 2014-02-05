@@ -7,15 +7,6 @@ C:\school\jaar 2\TCTI-V2THO7-12\week 1\THO7AlgorithmTimer\obj\x86\Debug\THO7Algo
 C:\school\jaar 2\TCTI-V2THO7-12\week 1\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimer.csproj.GenerateResource.Cache
 C:\school\jaar 2\TCTI-V2THO7-12\week 1\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.exe
 C:\school\jaar 2\TCTI-V2THO7-12\week 1\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.pdb
-C:\Users\Madmilla\Documents\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.exe
-C:\Users\Madmilla\Documents\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.pdb
-C:\Users\Madmilla\Documents\GitHub\2C-W1-TH\THO7AlgorithmTimer\bin\Debug\THO8AlgorithmTimer.exe
-C:\Users\Madmilla\Documents\GitHub\2C-W1-TH\THO7AlgorithmTimer\bin\Debug\THO8AlgorithmTimer.pdb
-C:\Users\Madmilla\Documents\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimer.csprojResolveAssemblyReference.cache
-C:\Users\Madmilla\Documents\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimerApplication.ImagePreviewForm.resources
-C:\Users\Madmilla\Documents\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimerApplication.MainForm.resources
-C:\Users\Madmilla\Documents\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimerApplication.Properties.Resources.resources
-C:\Users\Madmilla\Documents\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimer.csproj.GenerateResource.Cache
 D:\Documenten\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.exe
 D:\Documenten\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.pdb
 D:\Documenten\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimer.csprojResolveAssemblyReference.cache

@@ -26,6 +26,8 @@ namespace THO7AlgorithmTimerApplication
             AlgorithmList.Add(new BlackRectangleFillerAlgorithm("Black (Rectangle Filler)"));
             AlgorithmList.Add(new BlackAlgorithmV1("Black V1"));
             AlgorithmList.Add(new BlackAlgorithmV2("Black V2"));
+            AlgorithmList.Add(new BlackAlgorithmV3("Black V3 (unsafe aan)"));
+            AlgorithmList.Add(new BlackAlgorithmV4("Black V4"));
             AlgorithmList.Add(new InvertAlgorithmV1("Invert V1"));
             
             //Insert new Algorithms here
