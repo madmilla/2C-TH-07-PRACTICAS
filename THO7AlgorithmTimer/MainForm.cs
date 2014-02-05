@@ -23,7 +23,7 @@ namespace THO7AlgorithmTimerApplication
             InitializeComponent();
             AlgorithmList.Add(new FlipAlgorithm("Flip"));
             AlgorithmList.Add(new RotateAlgorithm("Rotate"));
-            AlgorithmList.Add(new BlackAlgorithm("Black"));
+            AlgorithmList.Add(new BlackRectangleFillerAlgorithm("Black (Rectangle Filler)"));
             
             //Insert new Algorithms here
             /*          ^
