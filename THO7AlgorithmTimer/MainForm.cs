@@ -29,6 +29,7 @@ namespace THO7AlgorithmTimerApplication
             AlgorithmList.Add(new BlackAlgorithmV3("Black V3 (unsafe aan)"));
             AlgorithmList.Add(new BlackAlgorithmV4("Black V4"));
             AlgorithmList.Add(new InvertAlgorithmV1("Invert V1"));
+            AlgorithmList.Add(new InvertAlgorithmV2("Invert V2"));
             
             //Insert new Algorithms here
             /*          ^

@@ -46,6 +46,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -71,6 +72,8 @@
   <ItemGroup>
     <Compile Include="BlackAlgorithmV1.cs" />
     <Compile Include="BlackAlgorithmV2.cs" />
+    <Compile Include="BlackAlgorithmV3.cs" />
+    <Compile Include="BlackAlgorithmV4.cs" />
     <Compile Include="BlackRectangleFillerAlgorithm.cs" />
     <Compile Include="ImagePreviewForm.cs">
       <SubType>Form</SubType>
@@ -78,6 +81,7 @@
     <Compile Include="ImagePreviewForm.Designer.cs">
       <DependentUpon>ImagePreviewForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InvertAlgorithmV2.cs" />
     <Compile Include="InvertAlgorithmV1.cs" />
     <Compile Include="RotateAlgorithm.cs" />
     <Compile Include="MainForm.cs">
