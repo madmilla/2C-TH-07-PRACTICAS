@@ -25,3 +25,12 @@ C:\Users\Madmilla\Desktop\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimerApp
 C:\Users\Madmilla\Desktop\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimerApplication.MainForm.resources
 C:\Users\Madmilla\Desktop\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimerApplication.Properties.Resources.resources
 C:\Users\Madmilla\Desktop\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimer.csproj.GenerateResource.Cache
+C:\Users\Mitchell\Desktop\THO7AlgorithmTimer\bin\Debug\THO8AlgorithmTimer.exe
+C:\Users\Mitchell\Desktop\THO7AlgorithmTimer\bin\Debug\THO8AlgorithmTimer.pdb
+C:\Users\Mitchell\Desktop\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimer.csprojResolveAssemblyReference.cache
+C:\Users\Mitchell\Desktop\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimerApplication.ImagePreviewForm.resources
+C:\Users\Mitchell\Desktop\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimerApplication.MainForm.resources
+C:\Users\Mitchell\Desktop\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimerApplication.Properties.Resources.resources
+C:\Users\Mitchell\Desktop\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimer.csproj.GenerateResource.Cache
+C:\Users\Mitchell\Desktop\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.exe
+C:\Users\Mitchell\Desktop\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.pdb
