@@ -9,6 +9,12 @@ namespace THO7AlgorithmTimerApplication
 {
     class BlackAlgorithmV3 : VisionAlgorithm
     {
+        //  Authors:  
+        //  Lars Veenendaal                     1633223
+        //  lars.veenendaal@student.hu.nl       TIV-2A
+        //
+        //  Mitchell Werensteijn                1624291
+        //  mitchell.werensteijn@student.hu.nl  TIV-2A
         public BlackAlgorithmV3(String name) : base(name) { }
         public override System.Drawing.Bitmap DoAlgorithm(System.Drawing.Bitmap sourceImage)
         {
@@ -21,12 +27,15 @@ namespace THO7AlgorithmTimerApplication
             Rectangle bitmapRect = new Rectangle(new Point(0,0), returnImage.Size);
             
             // Lock the bits from the bitmap in system memory.
+            // Write only because we dont intent to read the bitmap.
             BitmapData bitmapData = returnImage.LockBits(new Rectangle(0, 0, returnImage.Width, returnImage.Height), ImageLockMode.WriteOnly, returnImage.PixelFormat);
 
-            // Set RGB to 0.   
+            // Set unsafe context (Check out : http://msdn.microsoft.com/en-us/library/chfa2zb8.aspx)
             unsafe
             {
-                byte* ptr = (byte*)bitmapData.Scan0;
+                // Create a pointer to go through the bitmapData.
+                byte* bitmapDataPtr = (byte*)bitmapData.Scan0;
+
                 // Check this is not a null area
                 if (!bitmapRect.IsEmpty)
                 {
@@ -35,11 +44,10 @@ namespace THO7AlgorithmTimerApplication
                     {
                         for (int x = bitmapRect.Left; x < bitmapRect.Right; x++)
                         {
-                            // layer.GetBitmap().SetPixel(x, y, m_colour);
-                            ptr[(x * 4) + y * bitmapData.Stride] = 0;
-                            ptr[(x * 4) + y * bitmapData.Stride + 1] = 0;
-                            ptr[(x * 4) + y * bitmapData.Stride + 2] = 0;
-                            ptr[(x * 4) + y * bitmapData.Stride + 3] = 255;
+                            bitmapDataPtr[(x * 4) + y * bitmapData.Stride] = 0;       // Set Blue
+                            bitmapDataPtr[(x * 4) + y * bitmapData.Stride + 1] = 0;   // Set Green
+                            bitmapDataPtr[(x * 4) + y * bitmapData.Stride + 2] = 0;   // Set Red
+                            bitmapDataPtr[(x * 4) + y * bitmapData.Stride + 3] = 255; // Set Alpha
                         }
                     }
                 }

@@ -9,6 +9,12 @@ namespace THO7AlgorithmTimerApplication
 {
     class BlackAlgorithmV2 : VisionAlgorithm
     {
+        //  Authors:  
+        //  Lars Veenendaal                     1633223
+        //  lars.veenendaal@student.hu.nl       TIV-2A
+        //
+        //  Mitchell Werensteijn                1624291
+        //  mitchell.werensteijn@student.hu.nl  TIV-2A
         public BlackAlgorithmV2(String name) : base(name) { }
         public override System.Drawing.Bitmap DoAlgorithm(System.Drawing.Bitmap sourceImage)
         {
@@ -33,10 +39,10 @@ namespace THO7AlgorithmTimerApplication
             // Set RGB to 0.   
             for (int counter = 0; counter < rgbValues.Length; counter += 4) 
             {
-                rgbValues[counter] = 0;
-                rgbValues[counter + 1] = 0;
-                rgbValues[counter + 2] = 0;
-                rgbValues[counter + 3] = 255;
+                rgbValues[counter] = 0;         // Set Blue
+                rgbValues[counter + 1] = 0;     // Set Green
+                rgbValues[counter + 2] = 0;     // Set Red
+                rgbValues[counter + 3] = 255;   // Set Alpha
             }
 
             // Copy the RGB values back to the bitmap
