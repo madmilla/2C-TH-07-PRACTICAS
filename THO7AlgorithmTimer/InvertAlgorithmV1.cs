@@ -12,11 +12,10 @@ namespace THO7AlgorithmTimerApplication
         public InvertAlgorithmV1(String name) : base(name) { }
         public override System.Drawing.Bitmap DoAlgorithm(System.Drawing.Bitmap sourceImage)
         {
-            Bitmap returnImage = new Bitmap(sourceImage);
-            System.Console.WriteLine(returnImage.PixelFormat.ToString());
-
             // Bronnen:  
             // http://msdn.microsoft.com/en-us/library/5ey6h79d(v=vs.110).aspx
+
+            Bitmap returnImage = new Bitmap(sourceImage);
 
             // Save the size from the bitmap in a rectangle at position 0,0.
             Rectangle bitmapRect = new Rectangle(new Point(0,0), returnImage.Size);

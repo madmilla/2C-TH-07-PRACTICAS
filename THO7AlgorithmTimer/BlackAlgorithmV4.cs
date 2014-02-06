@@ -12,11 +12,10 @@ namespace THO7AlgorithmTimerApplication
         public BlackAlgorithmV4(String name) : base(name) { }
         public override System.Drawing.Bitmap DoAlgorithm(System.Drawing.Bitmap sourceImage)
         {
-            Bitmap returnImage = new Bitmap(sourceImage);
-            System.Console.WriteLine(returnImage.PixelFormat.ToString());
-
             // Bronnen:  
             // http://msdn.microsoft.com/en-us/library/5ey6h79d(v=vs.110).aspx
+
+            Bitmap returnImage = new Bitmap(sourceImage);
 
             // Save the size from the bitmap in a rectangle at position 0,0.
             Rectangle bitmapRect = new Rectangle(new Point(0,0), returnImage.Size);
@@ -24,12 +23,7 @@ namespace THO7AlgorithmTimerApplication
             // Lock the bits from the bitmap in system memory.
             BitmapData bitmapData = returnImage.LockBits(new Rectangle(0, 0, returnImage.Width, returnImage.Height), ImageLockMode.WriteOnly, returnImage.PixelFormat);
 
-            // Copy the RGB values into the array.
-           // System.Runtime.InteropServices.Marshal.Copy(bitmapData.Scan0, rgbValues, 0, bytes);
-           // Rectangle areaToPaint = new Rectangle();
             int bytes = Math.Abs(bitmapData.Stride) * bitmapData.Height;
-            byte[] rgbValues = new byte[bytes];
-            int stride = bitmapData.Stride;
             // Set RGB to 0.   
             unsafe
             {
@@ -38,34 +32,19 @@ namespace THO7AlgorithmTimerApplication
                 if (!bitmapRect.IsEmpty)
                 {
                     // Go through the draw area and set the pixels as they should be
-                    for (int counter = 0; counter < rgbValues.Length; counter += 4)
+                    for (int counter = 0; counter < bytes; counter += 4)
                     {
                         ptr[counter] = 0;
                         ptr[counter + 1] = 0;
                         ptr[counter + 2] = 0;
+                        ptr[counter + 3] = 255;
                     }
-
-
-                    //for (int y = bitmapRect.Top; y < bitmapRect.Bottom; y++)
-                   // {
-                    //    for (int x = bitmapRect.Left; x < bitmapRect.Right; x++)
-                   //     {
-                    //        // layer.GetBitmap().SetPixel(x, y, m_colour);
-                    //        ptr[(x * 4) + y * stride] = 0;
-                    //        ptr[(x * 4) + y * stride + 1] = 0;
-                    //        ptr[(x * 4) + y * stride + 2] = 0;
-                    //    }
-                    //}
                 }
             }
 
-            // Copy the RGB values back to the bitmap
-            //System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, bitmapData.Scan0, bytes);
-            //bmp.UnlockBits(data);
             // Unlock the bits from the bitmap from system memory.
             returnImage.UnlockBits(bitmapData);
 
-            //returnImage = new Bitmap(returnImage.Width, returnImage.Height, g);
             return returnImage;
         }
     }

@@ -12,9 +12,10 @@ namespace THO7AlgorithmTimerApplication
         public override System.Drawing.Bitmap DoAlgorithm(System.Drawing.Bitmap sourceImage)
         {
             Bitmap returnImage = new Bitmap(sourceImage);
+
             Graphics g = Graphics.FromImage(returnImage);
             g.FillRectangle(Brushes.Black, 0, 0, returnImage.Width, returnImage.Height);
-            //returnImage = new Bitmap(returnImage.Width, returnImage.Height, g);
+
             return returnImage;
         }
     }

@@ -12,11 +12,9 @@ namespace THO7AlgorithmTimerApplication
         public InvertAlgorithmV2(String name) : base(name) { }
         public override System.Drawing.Bitmap DoAlgorithm(System.Drawing.Bitmap sourceImage)
         {
-            Bitmap returnImage = new Bitmap(sourceImage);
-            System.Console.WriteLine(returnImage.PixelFormat.ToString());
-
             // Bronnen:  
             // http://msdn.microsoft.com/en-us/library/5ey6h79d(v=vs.110).aspx
+            Bitmap returnImage = new Bitmap(sourceImage);
 
             // Save the size from the bitmap in a rectangle at position 0,0.
             Rectangle bitmapRect = new Rectangle(new Point(0,0), returnImage.Size);
@@ -32,15 +30,13 @@ namespace THO7AlgorithmTimerApplication
             {
                 byte* ptr = (byte*)bitmapData.Scan0;
                 // Check this is not a null area
-                if (!bitmapRect.IsEmpty)
+               
+                // Go through the draw area and set the pixels as they should be
+                for (int counter = 0; counter < bytes; counter += 4)
                 {
-                    // Go through the draw area and set the pixels as they should be
-                    for (int counter = 0; counter < bytes; counter += 4)
-                    {
-                        ptr[counter] = (byte) (255 - ptr[counter]);
-                        ptr[counter + 1] = (byte)(255 - ptr[counter + 1]);
-                        ptr[counter + 2] = (byte)(255 - ptr[counter + 2]);
-                    }
+                    ptr[counter] = (byte) (255 - ptr[counter]);
+                    ptr[counter + 1] = (byte)(255 - ptr[counter + 1]);
+                    ptr[counter + 2] = (byte)(255 - ptr[counter + 2]);
                 }
             }
             
