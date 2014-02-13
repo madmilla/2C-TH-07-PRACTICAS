@@ -24,6 +24,8 @@ namespace THO7AlgorithmTimerApplication
             AlgorithmList.Add(new FlipAlgorithm("Flip"));
             AlgorithmList.Add(new RotateAlgorithm("Rotate"));
             AlgorithmList.Add(new Median("MED"));
+            AlgorithmList.Add(new MedianFilterAlgorithmV1("MED V1"));
+            AlgorithmList.Add(new MedianFilterAlgorithmV2("MED V2"));
             /* 
              * Old assignment algorithms
              * 
