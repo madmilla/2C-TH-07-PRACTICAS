@@ -34,3 +34,5 @@ C:\Users\Mitchell\Desktop\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimerApp
 C:\Users\Mitchell\Desktop\THO7AlgorithmTimer\obj\x86\Debug\THO7AlgorithmTimer.csproj.GenerateResource.Cache
 C:\Users\Mitchell\Desktop\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.exe
 C:\Users\Mitchell\Desktop\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.pdb
+C:\Users\Madmilla\Documents\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.exe
+C:\Users\Madmilla\Documents\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.pdb
