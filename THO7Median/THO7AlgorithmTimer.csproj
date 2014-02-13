@@ -97,6 +97,11 @@
     <Compile Include="Week 2 - Median\Median.cs" />
     <Compile Include="Week 2 - Median\MedianFilterAlgorithmV1.cs" />
     <Compile Include="Week 2 - Median\MedianFilterAlgorithmV2.cs" />
+    <Compile Include="Week 2 - Median\MedianFilterAlgorithmV3.cs" />
+    <Compile Include="Week 2 - Median\MedianV2.cs" />
+    <Compile Include="Week 2 - Median\MedianV3.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <EmbeddedResource Include="ImagePreviewForm.resx">
       <DependentUpon>ImagePreviewForm.cs</DependentUpon>
     </EmbeddedResource>
