@@ -8,6 +8,8 @@ using System.Drawing.Imaging;
 
 namespace THO7AlgorithmTimerApplication
 {
+    //  Team 10
+    //
     //  Authors:  
     //  Lars Veenendaal                     1633223
     //  lars.veenendaal@student.hu.nl       TIV-2A
@@ -36,16 +38,15 @@ namespace THO7AlgorithmTimerApplication
             {
                 // Create a new Bitmap to alter since we need to keep the original.
                 System.Drawing.Bitmap NewBitmap = new System.Drawing.Bitmap(OriginalImage.Width, OriginalImage.Height);
+                // Locking the bitmaps
                 BitmapData NewData = LockImage(NewBitmap);
                 BitmapData OldData = LockImage(OriginalImage);
                 // Get the pixelsize 32 needs alpha were 24bpp doesn't
                 int NewPixelSize = GetPixelSize(NewData);
                 int OldPixelSize = GetPixelSize(OldData);
-                // W
-                Console.Write(" NEW" + NewPixelSize + " OLD " + OldPixelSize);
                 // Prepare the mask.
-                int MaskMin = -(Size / 2);
-                int MaskMax = (Size / 2);
+                int MatrixMin = -(Size / 2);
+                int MatrixMax = (Size / 2);
                 // Loop through the width and height.
                 // ++x because we dont want to start on zero because we cant read where the bitmap ends.
                 // End the loop just before the end again because we cant read further than the bitmap.
@@ -60,12 +61,12 @@ namespace THO7AlgorithmTimerApplication
                         List<int> BValues = new List<int>();
 
                         // Go through every pixel in the mask and get the specific color information and store that information in the lists.
-                        for (int MaskWidth = MaskMin; MaskWidth < MaskMax; ++MaskWidth)
+                        for (int MaskWidth = MatrixMin; MaskWidth < MatrixMax; ++MaskWidth)
                         {   
                             int actualPositionX = Width + MaskWidth;
                             if (actualPositionX >= 0 && actualPositionX < NewBitmap.Width)
                             {
-                                for (int MaskHeight = MaskMin; MaskHeight < MaskMax; ++MaskHeight)
+                                for (int MaskHeight = MatrixMin; MaskHeight < MatrixMax; ++MaskHeight)
                                 {
                                     int actualPositionY = Height + MaskHeight;
                                     if (actualPositionY >= 0 && actualPositionY < NewBitmap.Height)

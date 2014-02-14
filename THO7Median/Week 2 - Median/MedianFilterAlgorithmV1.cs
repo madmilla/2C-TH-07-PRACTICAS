@@ -9,6 +9,8 @@ namespace THO7AlgorithmTimerApplication
 {
     class MedianFilterAlgorithmV1 : VisionAlgorithm
     {
+        //  Team 10
+        //
 		//  Authors:  
 		//  Lars Veenendaal                     1633223
 		//  lars.veenendaal@student.hu.nl       TIV-2A
