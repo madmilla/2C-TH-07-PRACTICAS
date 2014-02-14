@@ -9,9 +9,12 @@ namespace THO7AlgorithmTimerApplication
 {
     class MedianFilterAlgorithmV1 : VisionAlgorithm
     {
-        //  Authors:  
-        //  Mitchell Werensteijn                1624291
-        //  mitchell.werensteijn@student.hu.nl  TIV-2A
+		//  Authors:  
+		//  Lars Veenendaal                     1633223
+		//  lars.veenendaal@student.hu.nl       TIV-2A
+		//
+		//  Mitchell Werensteijn                1624291
+		//  mitchell.werensteijn@student.hu.nl  TIV-2A
         public MedianFilterAlgorithmV1(String name) : base(name) { }
         public override System.Drawing.Bitmap DoAlgorithm(System.Drawing.Bitmap sourceImage)
         {

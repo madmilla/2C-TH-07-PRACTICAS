@@ -9,11 +9,15 @@ namespace THO7AlgorithmTimerApplication
 {
     class MedianFilterAlgorithmV2 : VisionAlgorithm
     {
+		//  Authors:  
+		//  Lars Veenendaal                     1633223
+		//  lars.veenendaal@student.hu.nl       TIV-2A
+		//
+		//  Mitchell Werensteijn                1624291
+		//  mitchell.werensteijn@student.hu.nl  TIV-2A
+		
         int maskSize; // Size of the mask
 
-        //  Authors:  
-        //  Mitchell Werensteijn                1624291
-        //  mitchell.werensteijn@student.hu.nl  TIV-2A
         public MedianFilterAlgorithmV2(String name, int m) : base(name) { maskSize = m; }
         public override System.Drawing.Bitmap DoAlgorithm(System.Drawing.Bitmap sourceImage)
         {
