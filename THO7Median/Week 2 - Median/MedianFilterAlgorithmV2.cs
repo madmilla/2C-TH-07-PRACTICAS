@@ -9,10 +9,12 @@ namespace THO7AlgorithmTimerApplication
 {
     class MedianFilterAlgorithmV2 : VisionAlgorithm
     {
+        int maskSize; // Size of the mask
+
         //  Authors:  
         //  Mitchell Werensteijn                1624291
         //  mitchell.werensteijn@student.hu.nl  TIV-2A
-        public MedianFilterAlgorithmV2(String name) : base(name) { }
+        public MedianFilterAlgorithmV2(String name, int m) : base(name) { maskSize = m; }
         public override System.Drawing.Bitmap DoAlgorithm(System.Drawing.Bitmap sourceImage)
         {
             Bitmap returnImage = new Bitmap(sourceImage);
@@ -39,9 +41,7 @@ namespace THO7AlgorithmTimerApplication
                 // Create a pointer to go through the bitmapData.
                 byte* bitmapDataPtr = (byte*)bitmapData.Scan0;
 
-                // Size of the median filter
-                int maskSize = 3;
-
+                // Source: http://www.gutgames.com/post/Noise-Reduction-of-an-Image-in-C-using-Median-Filters.aspx
                 int maskMin = -(maskSize / 2); // Minimum pixel index of the mask
                 int maskMax = (maskSize / 2);  // Maximum pixel index of the mask
 

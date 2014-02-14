@@ -21,17 +21,15 @@ namespace THO7AlgorithmTimerApplication
         public MainForm()
         {
             InitializeComponent();
-            AlgorithmList.Add(new MedianFilterAlgorithmV2("MedianFilterAlgorithmV2 v2 - 3x3");
-            AlgorithmList.Add(new MedianFilterAlgorithmV2("MedianFilterAlgorithmV2 v2 - 11x11"));
+            AlgorithmList.Add(new MedianFilterAlgorithmV1("MedianFilterAlgorithmV1 v1 - 3x3"));
+            AlgorithmList.Add(new MedianFilterAlgorithmV2("MedianFilterAlgorithmV2 v2 - 3x3", 3));
+            AlgorithmList.Add(new MedianFilterAlgorithmV2("MedianFilterAlgorithmV2 v2 - 11x11", 11));
             AlgorithmList.Add(new MedianV3("Median v3 - 3x3", 3));
             AlgorithmList.Add(new MedianV3("Median v3 - 11x11", 11));
             AlgorithmList.Add(new Median("(OLD) Median v1"));
             AlgorithmList.Add(new MedianFilterAlgorithmV1("(OLD) MED V1"));
-            AlgorithmList.Add(new MedianFilterAlgorithmV3("(OLD) MED V3"));
             //AlgorithmList.Add(new MedianV2("Median v2")); so broken.
             
-            AlgorithmList.Add(new FlipAlgorithm("Flip"));
-            AlgorithmList.Add(new RotateAlgorithm("Rotate"));
             /* 
              * Old assignment algorithms
              * 
