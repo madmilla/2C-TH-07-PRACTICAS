@@ -21,18 +21,17 @@ namespace THO7AlgorithmTimerApplication
         public MainForm()
         {
             InitializeComponent();
+            AlgorithmList.Add(new MedianFilterAlgorithmV2("MedianFilterAlgorithmV2 v2 - 3x3");
+            AlgorithmList.Add(new MedianFilterAlgorithmV2("MedianFilterAlgorithmV2 v2 - 11x11"));
+            AlgorithmList.Add(new MedianV3("Median v3 - 3x3", 3));
+            AlgorithmList.Add(new MedianV3("Median v3 - 11x11", 11));
+            AlgorithmList.Add(new Median("(OLD) Median v1"));
+            AlgorithmList.Add(new MedianFilterAlgorithmV1("(OLD) MED V1"));
+            AlgorithmList.Add(new MedianFilterAlgorithmV3("(OLD) MED V3"));
+            //AlgorithmList.Add(new MedianV2("Median v2")); so broken.
+            
             AlgorithmList.Add(new FlipAlgorithm("Flip"));
             AlgorithmList.Add(new RotateAlgorithm("Rotate"));
-            AlgorithmList.Add(new Median("Median v1"));
-            AlgorithmList.Add(new MedianV2("Median v2"));
-            AlgorithmList.Add(new MedianV3("Median v3 - 3x3", 3));
-            AlgorithmList.Add(new MedianV3("Median v3 - 5x5", 5));
-            AlgorithmList.Add(new MedianV3("Median v3 - 7x7", 7));
-            AlgorithmList.Add(new MedianV3("Median v3 - 9x9", 9));
-            AlgorithmList.Add(new MedianV3("Median v3 - 11x11", 11));
-            AlgorithmList.Add(new MedianFilterAlgorithmV1("MED V1"));
-            AlgorithmList.Add(new MedianFilterAlgorithmV2("MED V2"));
-            AlgorithmList.Add(new MedianFilterAlgorithmV3("MED V3"));
             /* 
              * Old assignment algorithms
              * 

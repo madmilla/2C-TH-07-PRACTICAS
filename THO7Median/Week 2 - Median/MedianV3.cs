@@ -8,7 +8,12 @@ using System.Drawing.Imaging;
 
 namespace THO7AlgorithmTimerApplication
 {
-    
+    //  Authors:  
+    //  Lars Veenendaal                     1633223
+    //  lars.veenendaal@student.hu.nl       TIV-2A
+    //
+    //  Mitchell Werensteijn                1624291
+    //  mitchell.werensteijn@student.hu.nl  TIV-2A
     class MedianV3 : VisionAlgorithm
     {
         protected int maskSize = 3;
