@@ -23,10 +23,13 @@ namespace THO7AlgorithmTimerApplication
         //
         //  Chanan van Ooijen                   1611621
         //  chanan.vanooijen@student.hu.nl      TIV-2A
+        //
+        //  Yusuf Syakur                        1633276
+        //  yusuf.syakur@student.hu.nl          TIV-2A
 
         public String CheckDifferences(System.Drawing.Bitmap inputImage, System.Drawing.Bitmap noisedImage, System.Drawing.Bitmap outputImage)
         {
-            String returnString = "";
+            //These doubles represent the amount of ~white and ~black pixels in the new and old picture
             double inWhite = 0;
             double inBlack = 0;
             double noiseWhite = 0;
@@ -34,6 +37,8 @@ namespace THO7AlgorithmTimerApplication
             double outWhite = 0;
             double outBlack = 0;
 
+            //These for loops will be used to run through the picture and check wether a pixel is black or white.
+            //If a pixel is black or white, a counter will be incremented depending on what picture the algorithm found the pixel on.
             for (int y = 0; y < inputImage.Height; y++)
             {
                 for (int x = 0; x < inputImage.Width; x++)
@@ -66,17 +71,18 @@ namespace THO7AlgorithmTimerApplication
                 }
             }
 
+            // The following doubles are the amount of white / black pixels in the input, noised image and output image
             double inputNoise = inBlack + inWhite;          // 40
-            double noiseNoise = noiseBlack + noiseWhite;    // 80
+            double noisedNoise = noiseBlack + noiseWhite;    // 80
             double outputNoise = outBlack + outWhite;       // 20
 
-            double totalNoise = noiseNoise - inputNoise;    // 40
+            // The total noise is the added noise only.
+            double totalNoise = noisedNoise - inputNoise;
 
+            // Output percentage.
             double percentOut = outputNoise / totalNoise * 100 - 100;
-            
-            returnString = "Noise removed: " + Math.Abs(Math.Round(percentOut, 4)) + "%.";
-            
-            return returnString;
+
+            return "Noise removed: " + Math.Abs(Math.Round(percentOut, 4)) + "%.";
         }
     }
 }
