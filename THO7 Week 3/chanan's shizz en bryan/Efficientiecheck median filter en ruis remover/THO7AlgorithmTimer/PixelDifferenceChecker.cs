@@ -5,6 +5,10 @@ using System.Text;
 using System.Drawing;
 using System.Drawing.Imaging;
 
+
+//Class: PixelDifferenceChecker
+//
+// This class is mainly for calculating the amount of salt and pepper noise in the filtered picture.
 namespace THO7AlgorithmTimerApplication
 {
     class PixelDifferenceChecker
@@ -24,14 +28,19 @@ namespace THO7AlgorithmTimerApplication
         //  Chanan van Ooijen                   1611621
         //  chanan.vanooijen@student.hu.nl      TIV-2A
 
+        //This is the main method that is used when the calculation has to take place.
         public String CheckDifferences(System.Drawing.Bitmap inputImage, System.Drawing.Bitmap outputImage)
         {
             String returnString = "";
+            
+            //These doubles represent the amount of ~white and ~black pixels in the new and old picture
             double inWhite = 0;
             double inBlack = 0;
             double outWhite = 0;
             double outBlack = 0;
 
+            //These for loops will be used to run through the picture and check wether a pixel is black or white.
+            //If a pixel is black or white, a counter will be incremented depending on what picture the algorithm found the pixel on.
             for (int y = 0; y < inputImage.Height; y++)
             {
                 for (int x = 0; x < inputImage.Width; x++)
@@ -55,10 +64,17 @@ namespace THO7AlgorithmTimerApplication
                     
                 }
             }
+            //The following two doubles are the amount of white / black pixels in the input and output image
             double pixelOutput = outWhite + outBlack;
             double pixelInput = inWhite + inBlack;
+            
+            double percentOut = 0;
 
-            double percentOut = pixelOutput / pixelInput * 100;
+            //In this if statement the percentOut will be the percentage of noise (salt & pepper) left in the pixel after going through a filter
+            if (pixelOutput != 0 || pixelInput != 0)
+            {
+                percentOut = pixelOutput / pixelInput * 100;
+            }
 
             returnString = "Percentage noise in new picture: " + percentOut + " percent.";
 
