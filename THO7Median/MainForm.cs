@@ -28,6 +28,9 @@ namespace THO7AlgorithmTimerApplication
             AlgorithmList.Add(new MedianV3("Median v3 - 11x11", 11));
             AlgorithmList.Add(new Median("(OLD) Median v1"));
             AlgorithmList.Add(new MedianFilterAlgorithmV1("(OLD) MED V1"));
+            AlgorithmList.Add(new Grayscale("Grayscale"));
+            AlgorithmList.Add(new Sobel("Sobel"));
+            AlgorithmList.Add(new Thresholding("Threshold"));
             //AlgorithmList.Add(new MedianV2("Median v2")); so broken.
             
             /* 

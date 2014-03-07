@@ -97,6 +97,9 @@
     <Compile Include="FlipAlgorithm.cs" />
     <Compile Include="VisionAlgorithm.cs" />
     <Compile Include="Week 2 - Median\Median.cs" />
+    <Compile Include="Week 2 - Median\Grayscale.cs" />
+    <Compile Include="Week 2 - Median\Thresholding.cs" />
+    <Compile Include="Week 2 - Median\Sobel.cs" />
     <Compile Include="Week 2 - Median\MedianFilterAlgorithmV1.cs" />
     <Compile Include="Week 2 - Median\MedianFilterAlgorithmV2.cs" />
     <Compile Include="Week 2 - Median\MedianV3.cs">
