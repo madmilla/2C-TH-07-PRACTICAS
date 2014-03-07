@@ -66,6 +66,6 @@ void SobelFilter::CreateSobelImage(Image &sourceImage, Image &destinationImage) 
 	}
 
 	bt->stop();
-	std::cout << "Time for the Median filter function: " << bt->elapsedMicroSeconds() << " Microseconds (" << bt->elapsedMilliSeconds() << "ms)" << std::endl;
+	std::cout << "Time for the Sobel edge detection function: " << bt->elapsedMicroSeconds() << " Microseconds (" << bt->elapsedMilliSeconds() << "ms)" << std::endl;
 }
 

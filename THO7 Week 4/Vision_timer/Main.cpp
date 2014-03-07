@@ -6,6 +6,7 @@
 #include "GrayScale.h"
 #include "MedianFilter.h"
 #include "SobelFilter.h"
+#include "Threshold.h"
 
 int main(int argc, char** argv) {
 	/*=========================     Program parameters     =========================*/
@@ -53,11 +54,19 @@ int main(int argc, char** argv) {
 		medianImage.SaveImageToFile("MEDIAN_");
 		std::cout << std::endl;
 
+		Image thresholdImage(originalImage);
+		Threshold thresh;
+		thresh.CreateThresholdImage(medianImage, thresholdImage);
+		thresholdImage.SaveImageToFile("THRESHOLD_");
+		std::cout << std::endl;
+
 		Image sobelImage(originalImage);
 		SobelFilter sobel;
-		sobel.CreateSobelImage(medianImage, sobelImage);
+		sobel.CreateSobelImage(thresholdImage, sobelImage);
 		sobelImage.SaveImageToFile("SOBEL_");
 		std::cout << std::endl;
+
+		
 	}
 
 	//Save the original image
