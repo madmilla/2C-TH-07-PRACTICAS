@@ -77,11 +77,13 @@
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MedianFilter.cpp" />
+    <ClCompile Include="SobelFilter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GrayScale.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="MedianFilter.h" />
+    <ClInclude Include="SobelFilter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

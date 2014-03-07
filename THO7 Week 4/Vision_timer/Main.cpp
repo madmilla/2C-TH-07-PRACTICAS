@@ -4,7 +4,8 @@
 #include <string>
 #include "Image.h"
 #include "GrayScale.h"
-//#include "MedianFilter.h"
+#include "MedianFilter.h"
+#include "SobelFilter.h"
 
 int main(int argc, char** argv) {
 	/*=========================     Program parameters     =========================*/
@@ -16,7 +17,8 @@ int main(int argc, char** argv) {
 //	std::string inputName = "TestImage.bmp";
 //	std::string inputName = "Busjes.jpg";
 //	std::string inputName = "BusjesGroot.jpg";
-	std::string inputName = "Waterfall.jpg";
+//	std::string inputName = "Waterfall.jpg";
+	std::string inputName = "license_plate_3.jpg";
 	
 
 	bool grayOn = true;
@@ -44,13 +46,18 @@ int main(int argc, char** argv) {
 		gray.CreateGrayScaleImage(originalImage, grayImage);
 		grayImage.SaveImageToFile("GRAY_");
 		std::cout << std::endl;
-		/*
+		
 		Image medianImage(originalImage);
 		MedianFilter median;
 		median.CreateMedianImage(grayImage, medianImage);
 		medianImage.SaveImageToFile("MEDIAN_");
 		std::cout << std::endl;
-		*/
+
+		Image sobelImage(originalImage);
+		SobelFilter sobel;
+		sobel.CreateSobelImage(medianImage, sobelImage);
+		sobelImage.SaveImageToFile("SOBEL_");
+		std::cout << std::endl;
 	}
 
 	//Save the original image

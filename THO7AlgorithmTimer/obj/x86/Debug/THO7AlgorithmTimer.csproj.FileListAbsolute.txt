@@ -36,3 +36,5 @@ C:\Users\Mitchell\Desktop\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.ex
 C:\Users\Mitchell\Desktop\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.pdb
 C:\Users\Madmilla\Documents\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.exe
 C:\Users\Madmilla\Documents\GitHub\2C-W1-TH\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.pdb
+C:\Users\Hwan\Documents\GitHub\2C-TH-07-PRACTICAS\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.exe
+C:\Users\Hwan\Documents\GitHub\2C-TH-07-PRACTICAS\THO7AlgorithmTimer\obj\x86\Debug\THO8AlgorithmTimer.pdb

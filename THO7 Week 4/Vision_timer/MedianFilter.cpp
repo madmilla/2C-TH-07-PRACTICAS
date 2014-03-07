@@ -13,7 +13,13 @@ void MedianFilter::CreateMedianImage(Image &sourceImage, Image &destinationImage
 	bt->reset();
 	bt->start();
 	
-	if (sourceImage.GetWidth() != destinationImage.GetWidth() && sourceImage.GetHeight() != destinationImage.GetHeight()) {
+	int srcHeight = sourceImage.GetHeight();
+	int srcWidth = sourceImage.GetWidth();
+
+	int dstHeight = destinationImage.GetHeight();
+	int dstWidth = destinationImage.GetWidth();
+
+	if (srcWidth != dstWidth && srcHeight != dstHeight) {
 		std::cout << "Error images are not the same size" << std::endl;
 		return;
 	}
@@ -31,8 +37,8 @@ void MedianFilter::CreateMedianImage(Image &sourceImage, Image &destinationImage
 	//int k;
 	BYTE window[9][3];
 	BYTE sortArray[9][3];
-	for (int y = 1; y < sourceImage.GetHeight() - 1; y++) {
-		for (int x = 1; x < sourceImage.GetWidth() - 1; x++) {
+	for (int y = 1; y < srcHeight - 1; y++) {
+		for (int x = 1; x < srcWidth - 1; x++) {
 			window[0][0] = sourceImage.GetPixelRed(x - 1, y - 1);
 			window[0][1] = sourceImage.GetPixelGreen(x - 1, y - 1);
 			window[0][2] = sourceImage.GetPixelBlue(x - 1, y - 1);
