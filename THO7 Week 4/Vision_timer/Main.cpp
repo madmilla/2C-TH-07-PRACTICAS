@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
 //	std::string inputName = "Busjes.jpg";
 //	std::string inputName = "BusjesGroot.jpg";
 //	std::string inputName = "Waterfall.jpg";
-	std::string inputName = "license_plate_3.jpg";
+	std::string inputName = "license_plate_11.jpg";
 	
 
 	bool grayOn = true;
