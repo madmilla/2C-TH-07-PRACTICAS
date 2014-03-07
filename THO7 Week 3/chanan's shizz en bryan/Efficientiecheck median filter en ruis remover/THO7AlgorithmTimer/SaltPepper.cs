@@ -9,6 +9,10 @@ namespace THO7AlgorithmTimerApplication
     class SaltPepper : VisionAlgorithm
     {
         public SaltPepper(String name, int noise) : base(name, noise) { }
+
+        // public static 2d int array
+        public static int[,] array2D = new int[1000000, 2];
+
         public override System.Drawing.Bitmap DoAlgorithm(System.Drawing.Bitmap sourceImage)
         {
             // returnImage is a copy of sourceImage
@@ -22,6 +26,9 @@ namespace THO7AlgorithmTimerApplication
 
             int i = 0;
             int j = 0;
+
+            // This 2D array will contain all the pixels that are salt&peppered
+            //int[,] array2D = new int[(((WIDTH * HEIGHT) / 100) * this.Noise)+1, 2];
             
             // rnd is a Random object and we can use it for our random salt&pepper noise
             Random rnd = new Random();
@@ -45,10 +52,18 @@ namespace THO7AlgorithmTimerApplication
                 {
                     returnImage.SetPixel(i, j, Color.White);
                 }
+                
+                // Saving coordinate x
+                array2D[condition, 0] = i;
+
+                // Saving coordinate y
+                array2D[condition, 1] = j;
 
                 // Now we have changed 1 pixel, add 1 to condition and go check the while loop again
                 condition++;
             }
+
+            
             return returnImage;
         }
     }

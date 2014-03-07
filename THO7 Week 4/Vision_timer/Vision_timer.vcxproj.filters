@@ -24,12 +24,18 @@
     <ClCompile Include="GrayScale.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MedianFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GrayScale.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MedianFilter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -29,52 +29,45 @@ namespace THO7AlgorithmTimerApplication
         //  chanan.vanooijen@student.hu.nl      TIV-2A
 
         //This is the main method that is used when the calculation has to take place.
-        public String CheckDifferences(System.Drawing.Bitmap inputImage, System.Drawing.Bitmap outputImage)
+        public String CheckDifferences(System.Drawing.Bitmap inputImage, System.Drawing.Bitmap outputImage, int noise)
         {
             String returnString = "";
-            
-            //These doubles represent the amount of ~white and ~black pixels in the new and old picture
-            double inWhite = 0;
-            double inBlack = 0;
-            double outWhite = 0;
-            double outBlack = 0;
 
-            //These for loops will be used to run through the picture and check wether a pixel is black or white.
-            //If a pixel is black or white, a counter will be incremented depending on what picture the algorithm found the pixel on.
-            for (int y = 0; y < inputImage.Height; y++)
+            // The width of the image
+            int WIDTH = inputImage.Width;
+
+            // The height of the image
+            int HEIGHT = inputImage.Height;
+
+            // Amount of pixels we have added salt&pepper noise
+            int test = (((WIDTH * HEIGHT) / 100) * noise);
+
+            // Amount unchanged pixels after median filter
+            int unChanged = 0;
+
+            // This for loop will walk through all pixels (the pixels we added salt&pepper noise) and checks if color is still black or white
+            // If yes, noise isn't gone, if no , noise is gone
+            for (int i = 0; i < test; i++)
             {
-                for (int x = 0; x < inputImage.Width; x++)
+                if (inputImage.GetPixel(SaltPepper.array2D[i, 0], SaltPepper.array2D[i, 1]).B <= 15 && outputImage.GetPixel(SaltPepper.array2D[i, 0]
+                    , SaltPepper.array2D[i, 1]).B <= 15 && inputImage.GetPixel(SaltPepper.array2D[i, 0], SaltPepper.array2D[i, 1]).G <= 15 && outputImage.GetPixel(SaltPepper.array2D[i, 0]
+                    , SaltPepper.array2D[i, 1]).G <= 15 && inputImage.GetPixel(SaltPepper.array2D[i, 0], SaltPepper.array2D[i, 1]).R <= 15 && outputImage.GetPixel(SaltPepper.array2D[i, 0]
+                    , SaltPepper.array2D[i, 1]).R <= 15)
                 {
-                    if (inputImage.GetPixel(x, y).B >= 240 && inputImage.GetPixel(x, y).G >= 240 && inputImage.GetPixel(x, y).R >= 240)
-                    {
-                        inWhite++; 
-                    } 
-                    else if (inputImage.GetPixel(x, y).B <= 15 && inputImage.GetPixel(x, y).G <= 15 && inputImage.GetPixel(x, y).R <= 15)
-                    {
-                        inBlack++;
-                    }
-                    if (outputImage.GetPixel(x, y).B >= 240 && outputImage.GetPixel(x, y).G >= 240 && outputImage.GetPixel(x, y).R >= 240)
-                    {
-                        outWhite++;
-                    } 
-                    else if (outputImage.GetPixel(x, y).B <= 15 && outputImage.GetPixel(x, y).G <= 15 && outputImage.GetPixel(x, y).R <= 15)
-                    {
-                        outBlack++;
-                    }
-                    
+                    unChanged += 1;
                 }
+                if (inputImage.GetPixel(SaltPepper.array2D[i, 0], SaltPepper.array2D[i, 1]).B >= 240 && outputImage.GetPixel(SaltPepper.array2D[i, 0]
+                    , SaltPepper.array2D[i, 1]).B >= 240 && inputImage.GetPixel(SaltPepper.array2D[i, 0], SaltPepper.array2D[i, 1]).G >= 240 && outputImage.GetPixel(SaltPepper.array2D[i, 0]
+                    , SaltPepper.array2D[i, 1]).G >= 240 && inputImage.GetPixel(SaltPepper.array2D[i, 0], SaltPepper.array2D[i, 1]).R >= 240 && outputImage.GetPixel(SaltPepper.array2D[i, 0]
+                    , SaltPepper.array2D[i, 1]).R >= 240)
+                {
+                    unChanged += 1;
+                } 
             }
-            //The following two doubles are the amount of white / black pixels in the input and output image
-            double pixelOutput = outWhite + outBlack;
-            double pixelInput = inWhite + inBlack;
-            
             double percentOut = 0;
 
-            //In this if statement the percentOut will be the percentage of noise (salt & pepper) left in the pixel after going through a filter
-            if (pixelOutput != 0 || pixelInput != 0)
-            {
-                percentOut = pixelOutput / pixelInput * 100;
-            }
+            // Calculate the percantage how effective the median filter is
+            percentOut = ((double)unChanged / (double)test) * 100;
 
             returnString = "Percentage noise in new picture: " + percentOut + " percent.";
 

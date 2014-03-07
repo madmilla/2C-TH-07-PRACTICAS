@@ -4,6 +4,7 @@
 #include <string>
 #include "Image.h"
 #include "GrayScale.h"
+//#include "MedianFilter.h"
 
 int main(int argc, char** argv) {
 	/*=========================     Program parameters     =========================*/
@@ -43,6 +44,13 @@ int main(int argc, char** argv) {
 		gray.CreateGrayScaleImage(originalImage, grayImage);
 		grayImage.SaveImageToFile("GRAY_");
 		std::cout << std::endl;
+		/*
+		Image medianImage(originalImage);
+		MedianFilter median;
+		median.CreateMedianImage(grayImage, medianImage);
+		medianImage.SaveImageToFile("MEDIAN_");
+		std::cout << std::endl;
+		*/
 	}
 
 	//Save the original image

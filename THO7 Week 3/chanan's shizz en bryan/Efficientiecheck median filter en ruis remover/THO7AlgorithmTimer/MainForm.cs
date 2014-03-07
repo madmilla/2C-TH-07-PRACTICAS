@@ -174,7 +174,7 @@ namespace THO7AlgorithmTimerApplication
             if (InputPictureBox.Image != null && OutputPictureBox.Image != null)
             {
                 PixelDifferenceChecker pdc = new PixelDifferenceChecker();
-                InfoLabel.Text += pdc.CheckDifferences(new Bitmap(pictureBox1.Image), new Bitmap(OutputPictureBox.Image)) + "\n";
+                InfoLabel.Text += pdc.CheckDifferences(new Bitmap(pictureBox1.Image), new Bitmap(OutputPictureBox.Image), 5) + "\n";
             }
         }
 
