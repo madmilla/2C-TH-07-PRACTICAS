@@ -73,6 +73,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BinaryYellow.cpp" />
     <ClCompile Include="EdgeDetection.cpp" />
     <ClCompile Include="Equalize.cpp" />
     <ClCompile Include="GrayScale.cpp" />
@@ -83,8 +84,10 @@
     <ClCompile Include="NumberPlateDetector.cpp" />
     <ClCompile Include="SobelFilter.cpp" />
     <ClCompile Include="Threshold.cpp" />
+    <ClCompile Include="XMLReader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BinaryYellow.h" />
     <ClInclude Include="EdgeDetection.h" />
     <ClInclude Include="Equalize.h" />
     <ClInclude Include="GrayScale.h" />
@@ -94,6 +97,7 @@
     <ClInclude Include="NumberPlateDetector.h" />
     <ClInclude Include="SobelFilter.h" />
     <ClInclude Include="Threshold.h" />
+    <ClInclude Include="XMLReader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -10,8 +10,22 @@
 #include "NumberPlateDetector.h"
 #include "Equalize.h"
 #include "Histogram.h"
+#include "XMLReader.h"
+#include "BinaryYellow.h"
 
+
+// MAINIANIASNFUIOASUIODFUIO
 int main(int argc, char** argv) {
+
+
+	XMLReader xml;
+	//xml.DisplayTestSamples();
+	std::string testxml("../Images/THO7_wk4_testset/testsamples.xml");
+	std::string testxml_ex("../Images/THO7_wk4_testset_EX/testsamples_ex.xml");
+	std::string testImage("license_plate_1.jpg");
+	std::string * testArray = xml.CreateArrayOfFilenames(testxml);
+
+
 	/*=========================     Program parameters     =========================*/
 
 //	std::string inputName = "LenaNoise.jpg";
@@ -23,22 +37,75 @@ int main(int argc, char** argv) {
 //	std::string inputName = "BusjesGroot.jpg";
 //	std::string inputName = "Waterfall.jpg";
 //	std::string inputName = "license_plate_11.jpg";
-	std::string inputName = "license_plate_ex_4.png";
+//	std::string inputName = "license_plate_ex_4.png";
 
-	bool grayOn = true;
+//	bool grayOn = true;
 	
 
 	/*=========================     Program parameters     =========================*/
 
-	/*
-	Read the chosen file
-	*/
-	if(argv[1] != nullptr) {
-		inputName = argv[1];
-		std::cout << "File is: " << inputName << "\n\n";
-	} else {
-		std::cout << "File is: " << inputName << "\n\n";
+	/* RUN THE TESTS */
+	int len = 0;
+	while (testArray[len] != "\0") {
+		len++;
 	}
+
+	for (int i = 0; i < len; i++){
+
+		/* =============================================================
+							BINARY YELLOW ALGORITHM
+
+					Replace everything in this loop to have it
+					applied to all the images in the xml.
+		================================================================*/
+
+		// 1. Input of original RGB image
+		// 2. Yellow Regions
+		// 3. Edge Detections
+		// 4. Morphological operation
+		// 5. Finding the fucking plate
+		// 6. Extraction of the plate region 
+
+		std::string inputName = testArray[i];
+
+		/*
+		Read the chosen file
+		*/
+		if (argv[1] != nullptr) {
+			inputName = argv[1];
+			std::cout << "File is: " << inputName << "\n\n";
+		}
+		else {
+			std::cout << "File is: " << inputName << "\n\n";
+		}
+
+
+		//Load the image in the Image class
+		Image originalImage(inputName);
+
+
+		Image BinaryYellowImage(originalImage);
+		BinaryYellow yellow;
+		yellow.CreateBinaryImage(originalImage, BinaryYellowImage);
+
+		BinaryYellowImage.SaveImageToFile("BY_");
+		std::cout << std::endl;
+
+		//Save the original image
+		originalImage.SaveImageToFile("ORIGINAL_");
+		std::cout << std::endl;
+
+	}
+	delete[] testArray;
+
+	/* =============================================================
+					???? ALGORITHM  
+
+					Note: How do we want to change algorithmes?
+
+					Replace everything in this loop to have it
+					applied to all the images in the xml.
+	================================================================
 
 	//Load the image in the Image class
 	Image originalImage(inputName);
@@ -63,7 +130,7 @@ int main(int argc, char** argv) {
 		Equalize equal;
 		equal.CreateEqualizedImage(medianImage, equalizeImage);
 		equalizeImage.SaveImageToFile("EQUAL_");
-		std::cout << std::endl;*/
+		std::cout << std::endl;
 
 		Image thresholdImage(originalImage);
 		Threshold thresh;
@@ -76,7 +143,7 @@ int main(int argc, char** argv) {
 		SobelFilter sobel;
 		sobel.CreateSobelImage(thresholdImage, sobelImage);
 		sobelImage.SaveImageToFile("SOBEL_");
-		std::cout << std::endl;*/
+		std::cout << std::endl;
 
 		Histogram histogram;
 		histogram.CreateHistogramY(thresholdImage);
@@ -85,11 +152,11 @@ int main(int argc, char** argv) {
 
 		
 	}
-
+	
 	//Save the original image
 	originalImage.SaveImageToFile("ORIGINAL_");
 	std::cout << std::endl;
-
+	*/
 	//End program
 	std::cout << "Program ended, Press a key to continue\n";
 	std::cin.ignore();
