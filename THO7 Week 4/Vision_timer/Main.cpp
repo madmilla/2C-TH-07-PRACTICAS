@@ -7,6 +7,7 @@
 #include "MedianFilter.h"
 #include "SobelFilter.h"
 #include "Threshold.h"
+#include "NumberPlateDetector.h"
 
 int main(int argc, char** argv) {
 	/*=========================     Program parameters     =========================*/
@@ -19,8 +20,8 @@ int main(int argc, char** argv) {
 //	std::string inputName = "Busjes.jpg";
 //	std::string inputName = "BusjesGroot.jpg";
 //	std::string inputName = "Waterfall.jpg";
-	std::string inputName = "license_plate_11.jpg";
-	
+//	std::string inputName = "license_plate_11.jpg";
+	std::string inputName = "license_plate_7.jpg";
 
 	bool grayOn = true;
 	
@@ -47,26 +48,30 @@ int main(int argc, char** argv) {
 		gray.CreateGrayScaleImage(originalImage, grayImage);
 		grayImage.SaveImageToFile("GRAY_");
 		std::cout << std::endl;
-		
+
 		Image medianImage(originalImage);
 		MedianFilter median;
-		median.CreateMedianImage(grayImage, medianImage);
+		median.CreateMedianFilterImage(grayImage, medianImage, 3);
 		medianImage.SaveImageToFile("MEDIAN_");
-		std::cout << std::endl;
-
-		Image thresholdImage(originalImage);
-		Threshold thresh;
-		thresh.CreateThresholdImage(medianImage, thresholdImage);
-		thresholdImage.SaveImageToFile("THRESHOLD_");
 		std::cout << std::endl;
 
 		Image sobelImage(originalImage);
 		SobelFilter sobel;
-		sobel.CreateSobelImage(thresholdImage, sobelImage);
+		sobel.CreateSobelImage(medianImage, sobelImage);
 		sobelImage.SaveImageToFile("SOBEL_");
 		std::cout << std::endl;
 
-		
+		Image thresholdImage(originalImage);
+		Threshold thresh;
+		thresh.CreateThresholdImage(sobelImage, thresholdImage);
+		thresholdImage.SaveImageToFile("THRESHOLD_");
+		std::cout << std::endl;
+
+		Image NumberPlateImage(originalImage);
+		NumberPlateDetector NPI;
+		NPI.CreateNumberPlateImage(thresholdImage, NumberPlateImage);
+		NumberPlateImage.SaveImageToFile("PLATEDETECTOR_");
+		std::cout << std::endl;
 	}
 
 	//Save the original image

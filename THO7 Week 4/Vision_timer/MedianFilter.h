@@ -11,6 +11,7 @@ public:
 	MedianFilter();
 	~MedianFilter();
 	void CreateMedianImage(Image &sourceImage, Image &destinationImage);
+	void CreateMedianFilterImage(Image &sourceImage, Image &destinationImage, int size);
 };
 
 #endif

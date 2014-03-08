@@ -73,19 +73,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EdgeDetection.cpp" />
     <ClCompile Include="GrayScale.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MedianFilter.cpp" />
+    <ClCompile Include="NumberPlateDetector.cpp" />
     <ClCompile Include="SobelFilter.cpp" />
     <ClCompile Include="Threshold.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EdgeDetection.h" />
     <ClInclude Include="GrayScale.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="MedianFilter.h" />
+    <ClInclude Include="NumberPlateDetector.h" />
     <ClInclude Include="SobelFilter.h" />
     <ClInclude Include="Threshold.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
