@@ -8,8 +8,17 @@
 #include "SobelFilter.h"
 #include "Threshold.h"
 #include "NumberPlateDetector.h"
+#include "XMLReader.h"
+
 
 int main(int argc, char** argv) {
+	XMLReader xml;
+	//xml.DisplayTestSamples();
+	std::string testxml("../Images/THO7_wk4_testset/testsamples.xml");
+	std::string testImage("license_plate_1.jpg");
+
+	xml.CheckFoundValuesAgainstTheXMLValues(testxml, testImage, 400, 200, 400, 200, 400, 200, 400, 200);
+
 	/*=========================     Program parameters     =========================*/
 
 //	std::string inputName = "LenaNoise.jpg";

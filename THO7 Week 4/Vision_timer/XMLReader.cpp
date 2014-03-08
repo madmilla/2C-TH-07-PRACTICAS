@@ -12,6 +12,60 @@ XMLReader::~XMLReader() {
 
 }
 
+void XMLReader::CheckFoundValuesAgainstTheXMLValues(string file, string ImageFile, int UpLeftX, int UpLeftY, int UpRightX, int UpRightY, int DownLeftX, int DownLeftY, int DownRightX, int DownRightY){
+	xml_document<> doc;    // character type defaults to char
+	xml_node<> * root_node;
+
+	// Read the xml file into a vector
+	ifstream theFile(file);
+	vector<char> buffer((istreambuf_iterator<char>(theFile)), istreambuf_iterator<char>());
+
+	buffer.push_back('\0');
+	// Parse the buffer using the xml file parsing library into doc 
+	doc.parse<0>(&buffer[0]);
+	// Find our root node
+	root_node = doc.first_node("testsamples");
+
+	for (xml_node<> * test_node = root_node->first_node("image"); test_node; test_node = test_node->next_sibling())
+	{
+		if (test_node->first_attribute("filename")->value() == ImageFile){
+			printf("Results for: %s\n", test_node->first_attribute("filename")->value());
+
+			for (xml_node<> * license_plate_node = test_node->first_node("license_plate"); license_plate_node; license_plate_node = license_plate_node->next_sibling())
+			{
+				xml_node<> * location_node = license_plate_node->first_node("location");
+				//for (xml_node<> * location_node = license_plate_node->first_node("location"); location_node; location_node = location_node->next_sibling())
+				//{
+				//	location_node->
+				
+				//Compare difference
+				int node_UpLeftX = atoi(location_node->first_node("upperleft")->first_attribute("x")->value());
+				int node_UpLeftY = atoi(location_node->first_node("upperleft")->first_attribute("y")->value());
+
+				int node_UpRightX = atoi(location_node->first_node("upperright")->first_attribute("x")->value());
+				int node_UpRightY = atoi(location_node->first_node("upperright")->first_attribute("y")->value());
+
+				int node_DownLeftX = atoi(location_node->first_node("lowerleft")->first_attribute("x")->value());
+				int node_DownLeftY = atoi(location_node->first_node("lowerleft")->first_attribute("y")->value());
+
+				int node_DownRightX = atoi(location_node->first_node("lowerright")->first_attribute("x")->value());
+				int node_DownRightY = atoi(location_node->first_node("lowerright")->first_attribute("y")->value());
+
+				
+				printf(" \t\tULX\tULY\tURX\tURY\tDLX\tDLY\tDRX\tDRY\n");
+				printf("Goal:	\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n", node_UpLeftX, node_UpLeftY, node_UpRightX, node_UpRightY, node_DownLeftX, node_DownLeftY, node_DownRightX, node_DownRightY);
+				printf("Input:  \t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n", UpLeftX, UpLeftY, UpRightX, UpRightY, DownLeftX, DownLeftY, DownRightX, DownRightY);
+				printf("==============================================================================\n");
+				printf("Result: \t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n", node_UpLeftX - UpLeftX, node_UpLeftY - UpLeftY, node_UpRightX - UpRightX, node_UpRightY - UpRightY, node_DownLeftX - DownLeftX, node_DownLeftY - DownLeftY, node_DownRightX - DownRightX, node_DownRightY - DownRightY);
+
+				//printf("Het nummerbord is: %s \n\n", license_plate_node->first_node("text")->value());
+
+			}
+		}
+	}
+	cout << endl;
+}
+
 void XMLReader::DisplayTestSamples() {
 	
 	xml_document<> doc;    // character type defaults to char

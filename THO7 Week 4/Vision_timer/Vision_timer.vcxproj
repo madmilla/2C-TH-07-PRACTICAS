@@ -81,6 +81,7 @@
     <ClCompile Include="NumberPlateDetector.cpp" />
     <ClCompile Include="SobelFilter.cpp" />
     <ClCompile Include="Threshold.cpp" />
+    <ClCompile Include="XMLReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EdgeDetection.h" />
@@ -90,6 +91,7 @@
     <ClInclude Include="NumberPlateDetector.h" />
     <ClInclude Include="SobelFilter.h" />
     <ClInclude Include="Threshold.h" />
+    <ClInclude Include="XMLReader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
