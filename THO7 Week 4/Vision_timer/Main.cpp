@@ -8,17 +8,10 @@
 #include "SobelFilter.h"
 #include "Threshold.h"
 #include "NumberPlateDetector.h"
-#include "XMLReader.h"
-
+#include "Equalize.h"
+#include "Histogram.h"
 
 int main(int argc, char** argv) {
-	XMLReader xml;
-	//xml.DisplayTestSamples();
-	std::string testxml("../Images/THO7_wk4_testset/testsamples.xml");
-	std::string testImage("license_plate_1.jpg");
-
-	xml.CheckFoundValuesAgainstTheXMLValues(testxml, testImage, 400, 200, 400, 200, 400, 200, 400, 200);
-
 	/*=========================     Program parameters     =========================*/
 
 //	std::string inputName = "LenaNoise.jpg";
@@ -30,7 +23,7 @@ int main(int argc, char** argv) {
 //	std::string inputName = "BusjesGroot.jpg";
 //	std::string inputName = "Waterfall.jpg";
 //	std::string inputName = "license_plate_11.jpg";
-	std::string inputName = "license_plate_7.jpg";
+	std::string inputName = "license_plate_ex_4.png";
 
 	bool grayOn = true;
 	
@@ -60,27 +53,37 @@ int main(int argc, char** argv) {
 
 		Image medianImage(originalImage);
 		MedianFilter median;
-		median.CreateMedianFilterImage(grayImage, medianImage, 3);
+		median.CreateMedianFilterImage(grayImage, medianImage, 21);
 		medianImage.SaveImageToFile("MEDIAN_");
 		std::cout << std::endl;
 
-		Image sobelImage(originalImage);
-		SobelFilter sobel;
-		sobel.CreateSobelImage(medianImage, sobelImage);
-		sobelImage.SaveImageToFile("SOBEL_");
-		std::cout << std::endl;
+		//Equalize seems to add more noise (white pixels) to the thresholded image.
+		//This is why we did not add this algorithm. But it might be usefull at a later stage.
+		/*Image equalizeImage(originalImage);
+		Equalize equal;
+		equal.CreateEqualizedImage(medianImage, equalizeImage);
+		equalizeImage.SaveImageToFile("EQUAL_");
+		std::cout << std::endl;*/
 
 		Image thresholdImage(originalImage);
 		Threshold thresh;
-		thresh.CreateThresholdImage(sobelImage, thresholdImage);
+		thresh.CreateThresholdImage(medianImage, thresholdImage);
 		thresholdImage.SaveImageToFile("THRESHOLD_");
 		std::cout << std::endl;
 
-		Image NumberPlateImage(originalImage);
-		NumberPlateDetector NPI;
-		NPI.CreateNumberPlateImage(thresholdImage, NumberPlateImage);
-		NumberPlateImage.SaveImageToFile("PLATEDETECTOR_");
+		//Sobel image did not seem to do its work.
+		/*Image sobelImage(originalImage);
+		SobelFilter sobel;
+		sobel.CreateSobelImage(thresholdImage, sobelImage);
+		sobelImage.SaveImageToFile("SOBEL_");
+		std::cout << std::endl;*/
+
+		Histogram histogram;
+		histogram.CreateHistogramY(thresholdImage);
+		histogram.CreateHistogramX(thresholdImage);
 		std::cout << std::endl;
+
+		
 	}
 
 	//Save the original image

@@ -39,7 +39,10 @@
     <ClCompile Include="NumberPlateDetector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="XMLReader.cpp">
+    <ClCompile Include="Equalize.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Histogram.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,7 +68,10 @@
     <ClInclude Include="EdgeDetection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="XMLReader.h">
+    <ClInclude Include="Equalize.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Histogram.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

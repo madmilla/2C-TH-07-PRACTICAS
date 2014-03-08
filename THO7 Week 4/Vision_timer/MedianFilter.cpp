@@ -114,21 +114,12 @@ void MedianFilter::CreateMedianFilterImage(Image &sourceImage, Image &destinatio
 	int doubleSize = size*size;
 	int halfSize = size / 2;
 
-	//Initializing the primary array, where all the pixelvalues will be stored.
-	BYTE** window = new BYTE*[doubleSize];
-	for (int i = 0; i < doubleSize; i++) {
-		//This new integer has 3 values (R,G,B)
-		window[i] = new BYTE[3];
-	}
-	for (int i = 0; i < doubleSize; i++) {
-		for (int j = 0; j < 3; j++) {
-			window[i][j] = 0;
-		}
-	}
-	//We can now use the window array like this: window[1][3].
+	int median = 0;
+	int temp = 0;
 
-	//int window[3][3];
-	//int sortArray[9][3];
+	//Initializing the primary array, where all the pixelvalues will be stored.
+	int* window;
+	window = (int *)malloc(sizeof(int)* doubleSize);
 
 	//Two for lusses for the coordinates of the pixels.
 	int k = 0;
@@ -136,36 +127,28 @@ void MedianFilter::CreateMedianFilterImage(Image &sourceImage, Image &destinatio
 		for (int y = halfSize; y < sourceImage.GetHeight() - halfSize; y++) {
 			//std::cout << "asdf" << std::endl;
 			//Now we create another two for lusses for the dimensions of the array
-			for (int l = -halfSize; l < halfSize + 1; l++) {
-				for (int m = -halfSize; m < halfSize + 1; m++) {
-					window[k][0] = sourceImage.GetPixelRed(x + l, y + m);
-					window[k][1] = sourceImage.GetPixelGreen(x + l, y + m);
-					window[k][2] = sourceImage.GetPixelBlue(x + l, y + m);
+			for (int newX = (x - halfSize); newX < (x + halfSize); newX++) {
+				for (int newY = (y - halfSize); newY < (y + halfSize); newY++) {
+					window[k] = sourceImage.GetPixelRed(newX, newY);
 					k++;
 				}
 			}
-			k = 0;
+			
 
-			BYTE temp[3];
 			for (int index = 0; index < doubleSize; index++) {
-				temp[0] = window[index][0];
-				temp[1] = window[index][1];
-				temp[2] = window[index][2];
-				if (index - 1 >= 0) {
-					BYTE tempAlles = temp[0] + temp[1] + temp[2];
-					BYTE windowAlles = window[index - 1][0] + window[index - 1][1] + window[index - 1][2];
-					while ((index - 1 >= 0) && (tempAlles < windowAlles)) {
-						window[index][0] = window[index - 1][0];
-						window[index][1] = window[index - 1][1];
-						window[index][2] = window[index - 1][2];
-						index--;
-					}
-					window[index][0] = temp[0];
-					window[index][1] = temp[1];
-					window[index][2] = temp[2];
+				temp = window[index];
+				//Grootste waarde wordt de hoogste waarde in de array
+				while ((index - 1 >= 0) && (temp < window[index - 1])) {
+					window[index] = window[index - 1];
+					index--;
 				}
+				window[index] = temp;
 			}
-			destinationImage.SetPixel(x, y, window[doubleSize / 2][0] << redPixelShift | window[doubleSize / 2][1] << greenPixelShift | window[doubleSize / 2][2] << bluePixelShift);
+			median = window[doubleSize / 2];
+			destinationImage.SetPixel(x, y, median << redPixelShift | median << greenPixelShift | median << bluePixelShift);
+
+			k = 0;
+			temp = 0;
 		}
 	}
 	bt->stop();
@@ -173,4 +156,14 @@ void MedianFilter::CreateMedianFilterImage(Image &sourceImage, Image &destinatio
 }
 
 
-
+//Double array creator (variable size)
+/*int** window = new int*[doubleSize];
+	for (int i = 0; i < doubleSize; i++) {
+		//This new integer has 3 values (R,G,B)
+		window[i] = new int[3];
+	}
+	for (int i = 0; i < doubleSize; i++) {
+		for (int j = 0; j < 3; j++) {
+			window[i][j] = 0;
+		}
+		}*/

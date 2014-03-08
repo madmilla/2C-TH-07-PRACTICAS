@@ -31,27 +31,63 @@ void Threshold::CreateThresholdImage(Image &sourceImage, Image &destinationImage
 	int temp = 0;
 	int* window;
 	int index = 0;
-	window = (int *)malloc(sizeof(int)* imageSize);
-	for (int u = 0; u < imageSize; u++) {
+	window = (int *)malloc(sizeof(int)* 121);
+	for (int u = 0; u < 121; u++) {
 		window[u] = 0;
 	}
 	//Putting data of picture (grayvalues) into an array to take the median which will become the threshold.
-	for (int i = 0; i < srcWidth; i++) {
-		for (int j = 0; j < srcHeight; j++) {
-			window[index] = sourceImage.GetPixelRed(i, j);
+	//for (int i = 0; i < srcWidth; i++) {
+	//	for (int j = 0; j < srcHeight; j++) {
+	//		window[index] = sourceImage.GetPixelRed(i, j);
 			/*if (index > 0) {
-			for (int counter = 0; counter < sizeof(window); counter++) {
-			if (window[index] < window[index - 1]){
-			temp = window[index - 1];
-			window[index - 1] = window[index];
-			window[index] = temp;
-			}
-			}
+				for (int counter = 0; counter < sizeof(window); counter++) {
+					if (window[index] < window[index - 1]){
+						temp = window[index - 1];
+						window[index - 1] = window[index];
+						window[index] = temp;
+					}
+				}
 			}*/
-			index++;
+	//		index++;
+	//	}
+	//}
+
+	for (int x = 5; x < srcWidth - 5; x++)
+	{
+		for (int y = 5; y < srcHeight - 5; y++)
+		{
+			for (int newX = (x-5); newX < (x + 5); newX++)
+			{
+				for (int newY = (y-5); newY < (y + 5); newY++)
+				{
+					//This assignment represents the median we will find by putting it in the medianArray.
+					//This function takes the neightbours of the current pixel and puts them in the array.
+					window[index] = sourceImage.GetPixelRed(newX, newY);
+					index++;
+				}
+			}
+			for (int i = 0; i < 121; i++) {
+				temp += window[i];
+			}
+			temp = temp / 121;
+
+			int threshold = temp;//window[imageSize / 2];
+			//std::cout << threshold << std::endl;
+
+			//THRESHOLD CODE
+			
+			if (sourceImage.GetPixelRed(x, y) > threshold) {
+				destinationImage.SetPixel(x, y, 0 << redPixelShift | 0 << greenPixelShift | 0 << bluePixelShift);
+			}
+			else {
+				destinationImage.SetPixel(x, y, 255 << redPixelShift | 255 << greenPixelShift | 255 << bluePixelShift);
+			}
+			temp = 0;
+			index = 0;
 		}
 	}
-	for (int i = 0; i < imageSize; i++) {
+
+	/*for (int i = 0; i < imageSize; i++) {
 		temp += window[i];
 	}
 	temp = temp / imageSize;
@@ -71,7 +107,7 @@ void Threshold::CreateThresholdImage(Image &sourceImage, Image &destinationImage
 			}
 		}
 	}
-	//THRESHOLD CODE
+	//THRESHOLD CODE*/
 
 	bt->stop();
 	std::cout << "Time for the Threshold function: " << bt->elapsedMicroSeconds() << " Microseconds (" << bt->elapsedMilliSeconds() << "ms)" << std::endl;
