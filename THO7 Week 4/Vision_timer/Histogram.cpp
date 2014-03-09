@@ -1,5 +1,6 @@
 #include "Histogram.h"
 
+//AUTHOR Bryan Baan & Chanan van Ooijen
 using namespace std;
 Histogram::Histogram() {
 	bt = new BaseTimer();

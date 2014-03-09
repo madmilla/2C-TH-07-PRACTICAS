@@ -15,7 +15,7 @@
 #include "LineDetection.h"
 
 
-// MAINIANIASNFUIOASUIODFUIO
+//AUTHOR Bryan Baan, Chanan van Ooijen, Yusuf Syakur, Lars Veenendaal & Mitchell Werensteijn
 int main(int argc, char** argv) {
 
 
@@ -64,8 +64,7 @@ int main(int argc, char** argv) {
 		// 2. Yellow Regions
 		// 3. Edge Detections
 		// 4. Morphological operation
-		// 5. Finding the fucking plate
-		// 6. Extraction of the plate region 
+		// 5. Extraction of the plate region 
 
 		std::string inputName = testArray[i];
 
@@ -137,9 +136,8 @@ int main(int argc, char** argv) {
 		// 1. Input of original RGB image
 		// 2. Filter noise
 		// 3. Threshold the image
-		// 4. Morphological operation
-		// 5. Finding the fucking plate
-		// 6. Extraction of the plate region 
+		// 4. Edge detection
+		// 5. Extraction of the plate region 
 
 		/*std::string inputName = testArray[i];
 
@@ -184,77 +182,18 @@ int main(int argc, char** argv) {
 		std::cout << std::endl;
 
 		Histogram histogram;
-		histogram.CreateHistogramX(thresholdImage);
-		histogram.CreateHistogramY(thresholdImage);
+		histogram.CreateHistogramX(sobelImage);
+		histogram.CreateHistogramY(sobelImage);
 		std::cout << std::endl;
 
 		//Save the original image
 		originalImage.SaveImageToFile("ORIGINAL_");
-		std::cout << std::endl;*/
+		std::cout << std::endl;
+		*/
 
 	}
 	delete[] testArray;
 
-	/* =============================================================
-					???? ALGORITHM  
-
-					Note: How do we want to change algorithmes?
-
-					Replace everything in this loop to have it
-					applied to all the images in the xml.
-	================================================================
-
-	//Load the image in the Image class
-	Image originalImage(inputName);
-
-	//Filter image with grayscale
-	if(grayOn) {
-		Image grayImage(originalImage);
-		GrayScale gray;
-		gray.CreateGrayScaleImage(originalImage, grayImage);
-		grayImage.SaveImageToFile("GRAY_");
-		std::cout << std::endl;
-
-		Image medianImage(originalImage);
-		MedianFilter median;
-		median.CreateMedianFilterImage(grayImage, medianImage, 21);
-		medianImage.SaveImageToFile("MEDIAN_");
-		std::cout << std::endl;
-
-		//Equalize seems to add more noise (white pixels) to the thresholded image.
-		//This is why we did not add this algorithm. But it might be usefull at a later stage.
-		/*Image equalizeImage(originalImage);
-		Equalize equal;
-		equal.CreateEqualizedImage(medianImage, equalizeImage);
-		equalizeImage.SaveImageToFile("EQUAL_");
-		std::cout << std::endl;
-
-		Image thresholdImage(originalImage);
-		Threshold thresh;
-		thresh.CreateThresholdImage(medianImage, thresholdImage);
-		thresholdImage.SaveImageToFile("THRESHOLD_");
-		std::cout << std::endl;
-
-		//Sobel image did not seem to do its work.
-		/*Image sobelImage(originalImage);
-		SobelFilter sobel;
-		sobel.CreateSobelImage(thresholdImage, sobelImage);
-		sobelImage.SaveImageToFile("SOBEL_");
-		std::cout << std::endl;
-
-		Histogram histogram;
-		histogram.CreateHistogramY(thresholdImage);
-		histogram.CreateHistogramX(thresholdImage);
-		std::cout << std::endl;
-
-		
-	}
-	
-	//Save the original image
-	originalImage.SaveImageToFile("ORIGINAL_");
-	std::cout << std::endl;
-	*/
-	//End program
 	std::cout << "Program ended, Press a key to continue\n";
 	std::cin.ignore();
 	return 0;

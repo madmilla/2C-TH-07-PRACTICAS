@@ -1,6 +1,6 @@
 #include "Threshold.h"
 
-
+//AUTHOR Bryan Baan, Chanan van Ooijen, Yusuf Syakur
 Threshold::Threshold(){
 	bt = new BaseTimer();
 }

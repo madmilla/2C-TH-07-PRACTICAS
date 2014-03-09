@@ -1,5 +1,6 @@
 #include "MedianFilter.h"
 
+//AUTHOR Bryan Baan & Chanan van Ooijen
 MedianFilter::MedianFilter() {
 	bt = new BaseTimer();
 }

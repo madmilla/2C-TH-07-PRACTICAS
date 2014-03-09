@@ -1,7 +1,7 @@
 #include "XMLReader.h";
 
 
-
+//AUTHOR Lars Veenendaal
 using namespace rapidxml;
 using namespace std;
 

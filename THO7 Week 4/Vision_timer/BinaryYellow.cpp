@@ -1,5 +1,6 @@
 #include "BinaryYellow.h"
 
+//AUTHOR Lars Veenendaal
 BinaryYellow::BinaryYellow() {
 	bt = new BaseTimer();
 }

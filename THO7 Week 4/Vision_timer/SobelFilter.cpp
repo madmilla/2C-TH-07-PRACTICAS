@@ -1,6 +1,6 @@
 #include "SobelFilter.h"
 
-
+// AUTHOR Yusuf Syakur
 SobelFilter::SobelFilter(){
 	bt = new BaseTimer();
 }

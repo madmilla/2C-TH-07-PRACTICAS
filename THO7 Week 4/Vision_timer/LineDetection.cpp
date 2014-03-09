@@ -1,9 +1,7 @@
 #include "LineDetection.h"
 #include <fstream>
 
-//ATTENTION
-//LARS
-//GA NAAR LAATSTE PAAR REGELS AUB
+//AUTHOR Bryan Baan & Chanan van Ooijen
 
 using namespace std;
 LineDetection::LineDetection() {
