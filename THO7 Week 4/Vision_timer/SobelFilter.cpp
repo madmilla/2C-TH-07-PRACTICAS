@@ -10,6 +10,7 @@ SobelFilter::~SobelFilter(){
 	delete bt;
 }
 
+//This method defines edges by applying a x and y mask. The magnitude of both directions x and y will be combined resulting a value that represents an edge.
 void SobelFilter::CreateSobelImage(Image &sourceImage, Image &destinationImage) {
 	bt->reset();
 	bt->start();
@@ -25,6 +26,7 @@ void SobelFilter::CreateSobelImage(Image &sourceImage, Image &destinationImage) 
 		return;
 	}
 
+	//The masks
 	double kernelX[3][3] = { { -1, 0, 1 },
 							{ -2, 0, 2 },
 							{ -1, 0, 1 } };
@@ -33,11 +35,13 @@ void SobelFilter::CreateSobelImage(Image &sourceImage, Image &destinationImage) 
 							{ 0, 0, 0 },
 							{ 1, 2, 1 } };
 
+	//For each pixel, apply the masks and combine them.
 	for (int x = 1; x < dstWidth - 1; ++x){
 		for (int y = 1; y < dstHeight - 1; ++y){
 			double magX = 0.0;
 			double magY = 0.0;
 
+			//Applying the masks to the pixel resulting a magnitude for both the X and Y direction.
 			for (int a = 0; a < 3; a++)
 			{
 				for (int b = 0; b < 3; b++)
@@ -55,6 +59,7 @@ void SobelFilter::CreateSobelImage(Image &sourceImage, Image &destinationImage) 
 			if (magY < 0) { magY = 0; }
 			else if (magY > 255) { magY = 255; }
 
+			//Combine the masks 
 			double mag = sqrt(magX * magX + magY * magY);
 
 			if (mag < 0) { mag = 0; }

@@ -37,7 +37,7 @@ void Threshold::CreateThresholdImage(Image &sourceImage, Image &destinationImage
 	}
 	
 	//The threshold for every pixel will be retrieved by using an 11x11 Mean filter.
-	//That is also what these for lusses are for.
+	//That is also what these for loops are for.
 	for (int x = 5; x < srcWidth - 5; x++)
 	{
 		for (int y = 5; y < srcHeight - 5; y++)
