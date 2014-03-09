@@ -74,6 +74,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BinaryYellow.cpp" />
+    <ClCompile Include="CannyEdge.cpp" />
     <ClCompile Include="EdgeDetection.cpp" />
     <ClCompile Include="Equalize.cpp" />
     <ClCompile Include="GrayScale.cpp" />
@@ -88,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinaryYellow.h" />
+    <ClInclude Include="CannyEdge.h" />
     <ClInclude Include="EdgeDetection.h" />
     <ClInclude Include="Equalize.h" />
     <ClInclude Include="GrayScale.h" />
