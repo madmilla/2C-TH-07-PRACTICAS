@@ -9,10 +9,12 @@ Histogram::~Histogram() {
 	delete bt;
 }
 
+//This method creates a histogram using the Y column base and counting the edges over the X rows.
 void Histogram::CreateHistogramY(Image &sourceImage) {
 	bt->reset();
 	bt->start();
 
+	//Removing the previous histogram so you wont get weird values.
 	if (remove("histogram.csv") != 0)
 		perror("Error deleting file");
 	else
@@ -22,6 +24,8 @@ void Histogram::CreateHistogramY(Image &sourceImage) {
 	int imageHeight = sourceImage.GetHeight();
 	int imageWidth = sourceImage.GetWidth();
 	int totalPixels = imageWidth * imageHeight;
+
+	//Opening histogramfile
 	ofstream histogramFile;
 	histogramFile.open("histogramY.csv", ios::out);
 
@@ -30,10 +34,12 @@ void Histogram::CreateHistogramY(Image &sourceImage) {
 	int before = 0;
 	int after = 0;
 
+	//Emptying the arrayvalues
 	for (int i = 0; i < imageHeight; i++){
 		window[i] = 0;
 	}
 
+	//Creating the actual histogram
 	for (int y = 1; y < sourceImage.GetHeight() - 1; y++) {
 		for (int x = 1; x < sourceImage.GetWidth() - 1; x++) {
 
@@ -47,6 +53,8 @@ void Histogram::CreateHistogramY(Image &sourceImage) {
 			}
 		}
 	}
+
+	//Writing the histogram to the file.
 	for (int i = 0; i < imageHeight; i++){
 		histogramFile << (window[i]) << endl;
 	}
@@ -56,10 +64,12 @@ void Histogram::CreateHistogramY(Image &sourceImage) {
 
 }
 
+//This method creates a histogram using the X rows base and counting the edges over the Y column.
 void Histogram::CreateHistogramX(Image &sourceImage) {
 	bt->reset();
 	bt->start();
 
+	//Removing the old histogram to prevent getting weird values.
 	if (remove("histogramX.csv") != 0)
 		perror("Error deleting file");
 	else
@@ -77,10 +87,12 @@ void Histogram::CreateHistogramX(Image &sourceImage) {
 	int before = 0;
 	int after = 0;
 
+	//Emptying the arrayvalues
 	for (int i = 0; i < imageWidth; i++){
 		window[i] = 0;
 	}
 
+	//Creating the actual histogram
 	for (int x = 1; x < sourceImage.GetWidth() - 1; x++) {
 		for (int y = 1; y < sourceImage.GetHeight() - 1; y++) {
 
@@ -94,6 +106,8 @@ void Histogram::CreateHistogramX(Image &sourceImage) {
 			}
 		}
 	}
+
+	//writing the histogram to the file.
 	for (int i = 0; i < imageWidth; i++){
 		histogramFile << (window[i]) << endl;
 	}

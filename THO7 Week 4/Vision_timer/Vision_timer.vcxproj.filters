@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -33,12 +30,6 @@
     <ClCompile Include="Threshold.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EdgeDetection.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NumberPlateDetector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Equalize.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -51,7 +42,10 @@
     <ClCompile Include="XMLReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CannyEdge.cpp">
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LineDetection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,12 +65,6 @@
     <ClInclude Include="Threshold.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="NumberPlateDetector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EdgeDetection.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Equalize.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -89,7 +77,7 @@
     <ClInclude Include="BinaryYellow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CannyEdge.h">
+    <ClInclude Include="LineDetection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

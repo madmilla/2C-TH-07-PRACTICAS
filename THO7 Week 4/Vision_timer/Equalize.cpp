@@ -13,6 +13,7 @@ Equalize::~Equalize() {
 	delete bt;
 }
 
+//This method creates an image with equalized grayvalues. (removes foggyness on pictures)
 void Equalize::CreateEqualizedImage(Image &sourceImage, Image &destinationImage) {
 	bt->reset();
 	bt->start();
@@ -21,11 +22,6 @@ void Equalize::CreateEqualizedImage(Image &sourceImage, Image &destinationImage)
 	int width = sourceImage.GetWidth();
 	int totalPixels = height * width;
 	int pixelValue = 0;
-
-	ofstream histogramFile;
-	ofstream equalized_histogramfile;
-	histogramFile.open("histogram_to_be_equalized.csv", ios::out);
-	equalized_histogramfile.open("Equalized_histogram.csv", ios::out);
 
 	float alpha = 255 / float(totalPixels);
 	float equalized_histogram_array[256];
@@ -43,37 +39,24 @@ void Equalize::CreateEqualizedImage(Image &sourceImage, Image &destinationImage)
 			histogram_array[pixelValue] ++;
 		}
 	}
-	for (int i = 0; i < 256; i++){
-		histogramFile << i << std::endl;
-	}
-	//Here ends the creation.
 
-	//Equalization part.
 	equalized_histogram_array[0] = histogram_array[0] * alpha;
 
+	//This is where the equalization of the normal values will be done.
 	for (int i = 1; i < 256; i++){
 		equalized_histogram_array[i] = equalized_histogram_array[i - 1] + (histogram_array[i] * alpha);
-		equalized_histogramfile << equalized_histogram_array[i] << endl;
 	}
-
-	/*for (int i = 0; i < width; i++) {
-		for (int j = 0; j < height; j++) {
-			pixelValue = sourceImage.GetPixelRed(i,j); //FreeImage_GetPixelColor(equalized_picture, i, j, &colorr);
-			colorr.rgbRed = colorr.rgbGreen = colorr.rgbBlue = equalized_histogram_array[colorr.rgbRed];
-			FreeImage_SetPixelColor(equalized_picture, i, j, &colorr);
-		}
-	}*/
 
 	
 
+	
+	//Here the equalized values will be printed.
 	for (int i = 0; i < width; i++) {
 		for (int j = 0; j < height; j++) {
 			pixelValue = sourceImage.GetPixelRed(i, j);
 			destinationImage.SetPixel(i, j, ((int)equalized_histogram_array[pixelValue] << redPixelShift) | ((int)equalized_histogram_array[pixelValue] << greenPixelShift) | ((int)equalized_histogram_array[pixelValue] << bluePixelShift));
 		}
 	}
-
-	//end of equalization part
 
 	bt->stop();
 	std::cout << "Time for the Equalize function: " << bt->elapsedMicroSeconds() << " Microseconds (" << bt->elapsedMilliSeconds() << "ms)" << std::endl;

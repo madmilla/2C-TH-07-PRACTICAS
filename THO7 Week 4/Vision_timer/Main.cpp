@@ -12,6 +12,7 @@
 #include "Histogram.h"
 #include "XMLReader.h"
 #include "BinaryYellow.h"
+#include "LineDetection.h"
 
 
 // MAINIANIASNFUIOASUIODFUIO
@@ -68,9 +69,83 @@ int main(int argc, char** argv) {
 
 		std::string inputName = testArray[i];
 
-		/*
-		Read the chosen file
-		*/
+		
+		//Read the chosen file
+		
+		if (argv[1] != nullptr) {
+			inputName = argv[1];
+			std::cout << "File is: " << inputName << "\n\n";
+		}
+		else {
+			std::cout << "File is: " << inputName << "\n\n";
+		}
+
+
+		//Load the image in the Image class
+		Image originalImage(inputName);
+
+		Image BinaryYellowImage(originalImage);
+		BinaryYellow yellow;
+		yellow.CreateBinaryImage(originalImage, BinaryYellowImage);
+		BinaryYellowImage.SaveImageToFile("BY_");
+		std::cout << std::endl;
+
+		Image MedianImage(originalImage);
+		MedianFilter median;
+		median.CreateMedianFilterImage(BinaryYellowImage, MedianImage, 11);
+		MedianImage.SaveImageToFile("MEDIAN_");
+		std::cout << std::endl;
+
+		Histogram histogram;
+		histogram.CreateHistogramX(MedianImage);
+		histogram.CreateHistogramY(MedianImage);
+		std::cout << std::endl;
+
+		Image LineImage(MedianImage);
+		LineDetection line;
+		line.CreateLineDetectionImage(MedianImage, LineImage);
+		LineImage.SaveImageToFile("LINE_");
+		std::cout << std::endl;
+
+		histogram.CreateHistogramX(LineImage);
+		histogram.CreateHistogramY(LineImage);
+		std::cout << std::endl;
+
+		//This data will overwrite the "LINE_" image.
+		line.DetermineCornerPoints(LineImage/*, xml.DisplayXMLValuesFromFile(testArray[i])*/);
+		std::cout << std::endl;
+
+		
+
+		//Save the original image
+		originalImage.SaveImageToFile("ORIGINAL_");
+		std::cout << std::endl;
+
+	}
+
+	for (int i = 0; i < len; i++){
+
+		/* =============================================================
+		???? ALGORITHM
+
+		Note: How do we want to change algorithmes?
+
+		Replace everything in this loop to have it
+		applied to all the images in the xml.
+		================================================================*/
+
+		// 1. Input of original RGB image
+		// 2. Filter noise
+		// 3. Threshold the image
+		// 4. Morphological operation
+		// 5. Finding the fucking plate
+		// 6. Extraction of the plate region 
+
+		/*std::string inputName = testArray[i];
+
+		
+		//Read the chosen file
+		
 		if (argv[1] != nullptr) {
 			inputName = argv[1];
 			std::cout << "File is: " << inputName << "\n\n";
@@ -84,16 +159,38 @@ int main(int argc, char** argv) {
 		Image originalImage(inputName);
 
 
-		Image BinaryYellowImage(originalImage);
-		BinaryYellow yellow;
-		yellow.CreateBinaryImage(originalImage, BinaryYellowImage);
+		Image grayImage(originalImage);
+		GrayScale gray;
+		gray.CreateGrayScaleImage(originalImage, grayImage);
+		grayImage.SaveImageToFile("GRAY_");
+		std::cout << std::endl;
 
-		BinaryYellowImage.SaveImageToFile("BY_");
+		Image medianImage(originalImage);
+		MedianFilter median;
+		median.CreateMedianFilterImage(grayImage, medianImage, 9);
+		medianImage.SaveImageToFile("MEDIAN_");
+		std::cout << std::endl;
+
+		Image thresholdImage(originalImage);
+		Threshold thresh;
+		thresh.CreateThresholdImage(medianImage, thresholdImage);
+		thresholdImage.SaveImageToFile("THRESHOLD_");
+		std::cout << std::endl;
+
+		Image sobelImage(originalImage);
+		SobelFilter sobel;
+		sobel.CreateSobelImage(thresholdImage, sobelImage);
+		sobelImage.SaveImageToFile("SOBEL_");
+		std::cout << std::endl;
+
+		Histogram histogram;
+		histogram.CreateHistogramX(thresholdImage);
+		histogram.CreateHistogramY(thresholdImage);
 		std::cout << std::endl;
 
 		//Save the original image
 		originalImage.SaveImageToFile("ORIGINAL_");
-		std::cout << std::endl;
+		std::cout << std::endl;*/
 
 	}
 	delete[] testArray;

@@ -13,6 +13,7 @@ GrayScale::~GrayScale() {
 	delete bt;
 }
 
+//Creates grayscale values of the image.
 void GrayScale::CreateGrayScaleImage(Image &sourceImage, Image &destinationImage) {
 	bt->reset();
 	bt->start();
@@ -24,6 +25,7 @@ void GrayScale::CreateGrayScaleImage(Image &sourceImage, Image &destinationImage
 
 	int grayValue;
 
+	//Setting the current pixelvalues to grayscale values.
 	for(int y = sourceImage.GetHeight() - 1; y >= 0; y--) {
 		for(int x = sourceImage.GetWidth() - 1; x >= 0; x--) {
 			grayValue = (int)((sourceImage.GetPixelRed(x, y) * 0.30) + (sourceImage.GetPixelGreen(x, y) * 0.59) + (sourceImage.GetPixelBlue(x, y) * 0.11));

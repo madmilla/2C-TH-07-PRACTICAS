@@ -26,10 +26,10 @@ void BinaryYellow::CreateBinaryImage(Image &sourceImage, Image &destinationImage
 			// Blue		= 0		-85
 
 			if (((int)sourceImage.GetPixelRed(x, y) >= 130) && ((int)sourceImage.GetPixelGreen(x, y) >= 80) && ((int)sourceImage.GetPixelBlue(x, y) <= 85)){
-				destinationImage.SetPixel(x, y, 0xFFFFFF);
+				destinationImage.SetPixel(x, y, 0xFFFFFFFF);
 			}
 			else{
-				destinationImage.SetPixel(x, y, 0x000000);
+				destinationImage.SetPixel(x, y, 0x000000FF);
 			}
 		}
 	}
