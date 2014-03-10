@@ -24,7 +24,8 @@ int main(int argc, char** argv) {
 	std::string testxml("../Images/THO7_wk4_testset/testsamples.xml");
 	std::string testxml_ex("../Images/THO7_wk4_testset_EX/testsamples_ex.xml");
 	std::string testImage("license_plate_1.jpg");
-	std::string * testArray = xml.CreateArrayOfFilenames(testxml);
+	std::string currentlySelectedXML = testxml;
+	std::string * testArray = xml.CreateArrayOfFilenames(currentlySelectedXML);
 
 
 	/*=========================     Program parameters     =========================*/
@@ -40,8 +41,6 @@ int main(int argc, char** argv) {
 //	std::string inputName = "license_plate_11.jpg";
 //	std::string inputName = "license_plate_ex_4.png";
 
-//	bool grayOn = true;
-	
 
 	/*=========================     Program parameters     =========================*/
 
@@ -111,10 +110,12 @@ int main(int argc, char** argv) {
 		std::cout << std::endl;
 
 		//This data will overwrite the "LINE_" image.
-		line.DetermineCornerPoints(LineImage/*, xml.DisplayXMLValuesFromFile(testArray[i])*/);
-		std::cout << std::endl;
-
-		
+		int result_array[4][2];
+		line.DetermineCornerPoints(LineImage, result_array);
+		std::cout << " ======= CHECKING =============  " << std::endl;
+		//	XMLReader results;
+		xml.CheckFoundValuesAgainstTheXMLValues(currentlySelectedXML, inputName, result_array[0][0], result_array[0][1], result_array[1][0], result_array[1][1], result_array[2][0], result_array[2][1], result_array[3][0], result_array[3][1]);
+		std::cout << " ======= END CHECKING ========= " << std::endl;
 
 		//Save the original image
 		originalImage.SaveImageToFile("ORIGINAL_");
@@ -122,10 +123,10 @@ int main(int argc, char** argv) {
 
 	}
 
-	for (int i = 0; i < len; i++){
+		//for (int i = 0; i < len; i++){
 
 		/* =============================================================
-		???? ALGORITHM
+		Not named ALGORITHM
 
 		Note: How do we want to change algorithmes?
 
@@ -190,8 +191,6 @@ int main(int argc, char** argv) {
 		originalImage.SaveImageToFile("ORIGINAL_");
 		std::cout << std::endl;
 		*/
-
-	}
 	delete[] testArray;
 
 	std::cout << "Program ended, Press a key to continue\n";

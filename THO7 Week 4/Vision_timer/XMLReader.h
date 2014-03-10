@@ -5,6 +5,9 @@
 #include <stdlib.h>
 #include <fstream>
 #include <vector>
+
+
+//AUTHOR Lars Veenendaal
 class XMLReader {
 private:
 

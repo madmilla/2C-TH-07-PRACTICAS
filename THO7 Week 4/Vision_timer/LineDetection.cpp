@@ -2,7 +2,7 @@
 #include <fstream>
 
 //AUTHOR Bryan Baan & Chanan van Ooijen
-
+//AUTHOR Lars Veenendaal
 using namespace std;
 LineDetection::LineDetection() {
 	bt = new BaseTimer();
@@ -123,7 +123,7 @@ void LineDetection::CreateLineDetectionImage(Image &sourceImage, Image &destinat
 //Also, the final license plate coordinates will be created here, ready for comparison.
 //The code in this method is very similar to the code of the method above, but certainly needed.
 //If you need explanation of this code, please check the comments written in the method above.
-void LineDetection::DetermineCornerPoints(Image &sourceImage) {
+void LineDetection::DetermineCornerPoints(Image &sourceImage, int(&result_array)[4][2]) {
 	int imageHeight = sourceImage.GetHeight();
 	int imageWidth = sourceImage.GetWidth();
 	int totalPixels = imageWidth * imageHeight;
@@ -170,7 +170,7 @@ void LineDetection::DetermineCornerPoints(Image &sourceImage) {
 	while (XValues[highestEdges2X] != 0) {
 		highestEdges2X++;
 	}
-	
+
 	highestAmountOfEdges = YValues[0];
 	int highestEdgesY = 0;
 
@@ -205,7 +205,17 @@ void LineDetection::DetermineCornerPoints(Image &sourceImage) {
 	//Hieronder moet er een vergelijking worden gemaakt met de waarden die wij gevonden hebben.
 	//De pixels die wij hebben gevonden worden hierboven opgeslagen (namen zijn denk ik vrij duidelijk).
 	//Succes met de vergelijking maken. Als dat niet lukt, is het beter als je dat gewoon verwijderd en daarna pas inleverd.
-	
+	result_array[0][0] = highestEdgesX;
+	result_array[0][1] = highestEdgesY;
+	result_array[1][0] = highestEdges2X;
+	result_array[1][1] = highestEdgesY;
+
+	result_array[2][0] = highestEdgesX;
+	result_array[2][1] = highestEdges2Y;
+	result_array[3][0] = highestEdges2X;
+	result_array[3][1] = highestEdges2Y;
+
+	//result_array[4][2] = { { highestEdgesX, highestEdgesY }, { highestEdges2X, highestEdgesY }, { highestEdgesX, highestEdges2Y }, { highestEdges2X, highestEdges2Y } };
 }
 
 

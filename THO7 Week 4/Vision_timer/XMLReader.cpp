@@ -149,10 +149,41 @@ void XMLReader::DisplayTestSamples() {
 				printf("lowerleft : \tX[%s], \ty[%s] \n", location_node->first_node("lowerleft")->first_attribute("x")->value(), location_node->first_node("lowerleft")->first_attribute("y")->value());
 				printf("lowerright: \tX[%s], \ty[%s] \n", location_node->first_node("lowerright")->first_attribute("x")->value(), location_node->first_node("lowerright")->first_attribute("y")->value());
 
-			//}
-			//printf("On %s, I tried their %s which is a %s. ",license_plate_node->first_attribute("description")->value());
-			printf("Het nummerbord is: %s", license_plate_node->first_node("text")->value());
-			
+				// int UpLeftX, int UpLeftY, int UpRightX, int UpRightY, int DownLeftX, int DownLeftY, int DownRightX, int DownRightY
+				// a = upleft
+				// b = upright
+				// c = downleft
+				// d = downright
+				// e = calculated
+
+
+				//Attempt at calculating the percentage covered.
+				//	int x_e = 1010;
+				//	int y_e = 1319;
+
+				//	int BAx = UpRightX - UpLeftX;
+				//	int BAy = UpRightY - UpLeftX;
+				//	int DAx = x_e - UpLeftX;
+				//	int DAy = y_e - UpLeftY;
+
+
+				//	printf("BAX: %d BAy: %d DAx: %d DAy: %d ", BAx, BAy, DAx, DAy);
+
+				//int z_ab = (x_e - UpLeftX)*(y_b - y_a) - (y_e - y_a)*(x_b - x_a);
+				//int z_cb = (x_e - x_c)*(y_b - y_c) - (y_e - y_c)*(x_b - x_c);
+				//int z_ca = (x_e - x_c)*(y_a - y_c) - (y_e - y_c)*(x_a - x_c);
+
+				//	int z_ab = (x_e - UpLeftX)*(UpRightY - UpLeftY) - (y_e - UpLeftY)*(UpRightX - UpLeftX);
+				//	int z_cb = (x_e - DownLeftX)*(UpRightY - DownLeftY) - (y_e - DownLeftY)*(UpRightX - DownLeftX);
+				//	int z_ca = (x_e - DownLeftX)*(UpLeftY - DownLeftY) - (y_e - DownLeftY)*(UpLeftX - DownLeftX);
+				//		//http://mathforum.org/library/drmath/view/54505.html
+				//	if (z_ab < 0 && z_cb < 0 && z_ca < 0){
+				//		printf(" %d %d is in the triangle.\n", x_e, y_e);
+				//	}
+				//	printf("%d %d %d \n", z_ab, z_cb, z_ca);
+
+				//printf("Het nummerbord is: %s \n\n", license_plate_node->first_node("text")->value());
+
 		}
 		cout << endl;
 	}
